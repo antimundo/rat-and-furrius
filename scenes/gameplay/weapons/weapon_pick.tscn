@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccn4q36ow8uji"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/weapons/weapon_pick.gd" id="1_2vjsw"]
+[ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_d15tf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4cndi"]
+radius = 40.0
+
+[sub_resource type="Animation" id="Animation_jwsgs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
+[sub_resource type="Animation" id="Animation_uhdcy"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_elvlr"]
+_data = {
+"RESET": SubResource("Animation_jwsgs"),
+"idle": SubResource("Animation_uhdcy")
+}
+
+[node name="WeaponPick" type="Node2D"]
+script = ExtResource("1_2vjsw")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 3.66519
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_d15tf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4cndi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_elvlr")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

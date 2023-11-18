@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dnpmbebgrb7ic"]
+[gd_scene load_steps=8 format=3 uid="uid://dnpmbebgrb7ic"]
 
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_b3dob"]
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_fgpct"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_0na1j"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_hc02h"]
+[ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="5_ivy5v"]
+[ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="6_gcqev"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -26,5 +28,19 @@ shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Goal" parent="." instance=ExtResource("3_hc02h")]
 position = Vector2(1318, 359)
+
+[node name="WeaponPick" parent="." instance=ExtResource("5_ivy5v")]
+position = Vector2(440, 147)
+current_weapon = 1
+
+[node name="WeaponPick2" parent="." instance=ExtResource("5_ivy5v")]
+position = Vector2(790, 146)
+current_weapon = 2
+
+[node name="WeaponPick3" parent="." instance=ExtResource("5_ivy5v")]
+position = Vector2(917, 445)
+
+[node name="PatrolCat" parent="." instance=ExtResource("6_gcqev")]
+position = Vector2(218, 343)
 
 [connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]

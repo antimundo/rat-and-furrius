@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bijr1niobi180"]
+[gd_scene load_steps=13 format=3 uid="uid://bijr1niobi180"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_qh5oh"]
+[ext_resource type="Script" path="res://scenes/gameplay/player_weapon.gd" id="2_2fm5i"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="2_nw4bl"]
 [ext_resource type="Texture2D" uid="uid://dop8nj5r7a62f" path="res://assets/sprites/Mouse_Sprite.png" id="2_u4q6q"]
+[ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_xlbxk"]
 [ext_resource type="Script" path="res://scenes/gameplay/player_tail.gd" id="4_ci5k6"]
 
 [sub_resource type="Curve" id="Curve_u3kns"]
@@ -12,8 +14,20 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_0p7rv"]
 colors = PackedColorArray(0.290196, 0.298039, 0.490196, 1, 0.541176, 0.427451, 0.607843, 1)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_y38pr"]
-radius = 15.0
+[sub_resource type="Animation" id="Animation_cddq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
 
 [sub_resource type="Animation" id="Animation_yipce"]
 resource_name = "idle"
@@ -31,29 +45,26 @@ tracks/0/keys = {
 "values": [Vector2(2, 2), Vector2(2.3, 2.3)]
 }
 
-[sub_resource type="Animation" id="Animation_cddq6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w43h6"]
 _data = {
 "RESET": SubResource("Animation_cddq6"),
 "idle": SubResource("Animation_yipce")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_y38pr"]
+radius = 15.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_qh5oh")
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(37, 0)
+script = ExtResource("2_2fm5i")
+
+[node name="Sprite" type="Sprite2D" parent="Weapon"]
+rotation = 0.261799
+texture = ExtResource("2_xlbxk")
+offset = Vector2(0, 50)
 
 [node name="Tail" type="Node2D" parent="."]
 position = Vector2(-45, 0)
@@ -64,9 +75,6 @@ default_color = Color(0.541176, 0.427451, 0.607843, 1)
 gradient = SubResource("Gradient_0p7rv")
 script = ExtResource("4_ci5k6")
 length = 15
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_y38pr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -84,3 +92,6 @@ autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_w43h6")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y38pr")
