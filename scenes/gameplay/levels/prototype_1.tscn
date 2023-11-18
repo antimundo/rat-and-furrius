@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://fulqqggki2ng"]
+
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_cw13g"]
+[ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_milvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
+size = Vector2(64, 64)
+
+[node name="prototype" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cw13g")]
+position = Vector2(159, 45)
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(413, 137)
+scale = Vector2(4.27, 5.63)
+texture = ExtResource("2_milvi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall2" type="Sprite2D" parent="."]
+position = Vector2(-33, 312)
+scale = Vector2(3.19, 10.95)
+texture = ExtResource("2_milvi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall3" type="Sprite2D" parent="."]
+position = Vector2(844, 300)
+scale = Vector2(3.19, 10.95)
+texture = ExtResource("2_milvi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall4" type="Sprite2D" parent="."]
+position = Vector2(395, 619)
+scale = Vector2(12.59, 2.71)
+texture = ExtResource("2_milvi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")

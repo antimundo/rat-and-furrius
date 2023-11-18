@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ded30fv8t1e7m"]
+[gd_scene load_steps=6 format=3 uid="uid://ded30fv8t1e7m"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_x4ujg"]
+[ext_resource type="Script" path="res://scenes/main_menu/LoadLevelButton.gd" id="2_l8buu"]
+[ext_resource type="PackedScene" uid="uid://dnpmbebgrb7ic" path="res://scenes/gameplay/levels/level_0.tscn" id="3_q5bli"]
+[ext_resource type="PackedScene" uid="uid://fulqqggki2ng" path="res://scenes/gameplay/levels/prototype_1.tscn" id="4_m2ka3"]
+[ext_resource type="PackedScene" uid="uid://cbnmdx7bwqyda" path="res://scenes/gameplay/levels/prototype_2.tscn" id="5_xged8"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -11,19 +15,44 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x4ujg")
 
-[node name="Button" type="Button" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -54.0
-offset_right = 105.0
-offset_bottom = 54.0
+offset_left = -20.5
+offset_top = -20.0
+offset_right = 20.5
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Play"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Prototipo 0"
+script = ExtResource("2_l8buu")
+scene = ExtResource("3_q5bli")
+
+[node name="Button1" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Prototipo 1"
+script = ExtResource("2_l8buu")
+scene = ExtResource("4_m2ka3")
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+text = "Prototipo 2"
+script = ExtResource("2_l8buu")
+scene = ExtResource("5_xged8")
+
+[connection signal="load_level" from="VBoxContainer/Button" to="." method="_on_load_level"]
+[connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
+[connection signal="load_level" from="VBoxContainer/Button1" to="." method="_on_load_level"]
+[connection signal="pressed" from="VBoxContainer/Button1" to="VBoxContainer/Button1" method="_on_pressed"]
+[connection signal="load_level" from="VBoxContainer/Button2" to="." method="_on_load_level"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]
