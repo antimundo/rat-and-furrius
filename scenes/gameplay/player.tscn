@@ -1,10 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://bijr1niobi180"]
+[gd_scene load_steps=7 format=3 uid="uid://bijr1niobi180"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_qh5oh"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="2_nw4bl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y38pr"]
 radius = 27.2947
+
+[sub_resource type="Animation" id="Animation_yipce"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2.3, 2.3)]
+}
+
+[sub_resource type="Animation" id="Animation_cddq6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w43h6"]
+_data = {
+"RESET": SubResource("Animation_cddq6"),
+"idle": SubResource("Animation_yipce")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_qh5oh")
@@ -20,3 +57,14 @@ modulate = Color(1, 0, 0.0156863, 1)
 position = Vector2(32, 0)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_nw4bl")
+
+[node name="Area" type="Sprite2D" parent="."]
+modulate = Color(0, 0.717647, 0.980392, 0.313726)
+scale = Vector2(2, 2)
+texture = ExtResource("2_nw4bl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_w43h6")
+}
