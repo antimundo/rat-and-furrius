@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="Mermelada Jam 2023"
-run/main_scene="res://hello_world.tscn"
+run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=800
+window/size/viewport_height=600
 
 [rendering]
 
