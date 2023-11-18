@@ -1,4 +1,5 @@
 extends Sprite2D
+## Used in levels to signal a player reached the end
 
 signal player_entered_goal
 

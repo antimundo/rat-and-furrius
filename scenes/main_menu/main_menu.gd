@@ -1,7 +1,10 @@
 extends Node
 ## Used in main menu to load the game
 
-func _on_load_level(scene) -> void:
-	var this_scene = scene.instantiate()
-	get_tree().root.add_child(this_scene)
+@export var game:PackedScene
+
+func _on_load_level(scenes: Array[PackedScene]) -> void:
+	var game_manager = game.instantiate()
+	game_manager.levels = scenes
+	get_tree().root.add_child(game_manager)
 	queue_free()
