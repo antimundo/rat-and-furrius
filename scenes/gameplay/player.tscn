@@ -44,7 +44,7 @@ _data = {
 "idle": SubResource("Animation_yipce")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_qh5oh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

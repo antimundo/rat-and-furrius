@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbnmdx7bwqyda"]
+[gd_scene load_steps=5 format=3 uid="uid://cbnmdx7bwqyda"]
 
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_iotvb"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_vi2r5"]
+[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_q7e1g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -46,3 +47,6 @@ texture = ExtResource("2_vi2r5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Goal" parent="." instance=ExtResource("3_q7e1g")]
+position = Vector2(1332, 338)
