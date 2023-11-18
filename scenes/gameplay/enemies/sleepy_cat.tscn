@@ -1,0 +1,96 @@
+[gd_scene load_steps=13 format=3 uid="uid://bd1gi8jk1bb2o"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_mb5vl"]
+[ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fa6an"]
+[ext_resource type="Script" path="res://scenes/gameplay/follow.gd" id="3_cv1dy"]
+[ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="4_mqvup"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_m4fif"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_ettpo"]
+
+[sub_resource type="Curve2D" id="Curve2D_030nq"]
+
+[sub_resource type="Animation" id="Animation_y7pmx"]
+resource_name = "vision_doze_off"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 1.8, 3),
+"transitions": PackedFloat32Array(-2, -2, -2, -2),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1e-05, 1e-05), Vector2(1e-05, 1e-05), Vector2(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_8lupt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mqc06"]
+_data = {
+"RESET": SubResource("Animation_8lupt"),
+"vision_doze_off": SubResource("Animation_y7pmx")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd51y"]
+radius = 30.35
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jednb"]
+radius = 31.0
+height = 62.0
+
+[node name="SleepyCat" type="Path2D"]
+curve = SubResource("Curve2D_030nq")
+script = ExtResource("1_mb5vl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("2_fa6an")
+script = ExtResource("3_cv1dy")
+node_to_follow = NodePath("../PathFollow2D")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PathFollow2D"]
+root_node = NodePath("../Vision")
+autoplay = "vision_doze_off"
+libraries = {
+"": SubResource("AnimationLibrary_mqc06")
+}
+
+[node name="Vision" type="Sprite2D" parent="PathFollow2D"]
+modulate = Color(1, 1, 1, 0.47451)
+scale = Vector2(3, 3)
+texture = ExtResource("4_mqvup")
+
+[node name="Area2D" type="Area2D" parent="PathFollow2D/Vision"]
+script = ExtResource("5_m4fif")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Vision/Area2D"]
+shape = SubResource("CircleShape2D_yd51y")
+
+[node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
+script = ExtResource("6_ettpo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]
+shape = SubResource("CapsuleShape2D_jednb")
+
+[connection signal="body_entered" from="PathFollow2D/Vision/Area2D" to="PathFollow2D/Vision/Area2D" method="_on_area_2d_body_entered"]
+[connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]
+[connection signal="body_entered" from="PathFollow2D/WeakSpot" to="PathFollow2D/WeakSpot" method="_on_area_2d_body_entered"]
+[connection signal="player_entered_enemy_weak_spot" from="PathFollow2D/WeakSpot" to="." method="_on_player_entered_enemy_weak_spot"]

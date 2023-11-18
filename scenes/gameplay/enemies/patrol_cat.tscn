@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://b80k0bgl3c61d"]
+[gd_scene load_steps=10 format=3 uid="uid://b80k0bgl3c61d"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_3cni5"]
-[ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="1_rpewc"]
+[ext_resource type="Texture2D" uid="uid://chr1i2reijjlx" path="res://assets/sprites/Cat_patrol.png" id="2_2fkh4"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_3iepx"]
+[ext_resource type="Script" path="res://scenes/gameplay/follow.gd" id="3_gvhe8"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="4_3rp4t"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="4_ajana"]
 
@@ -20,11 +21,13 @@ height = 62.0
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_3cni5")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("2_2fkh4")
+script = ExtResource("3_gvhe8")
+node_to_follow = NodePath("../PathFollow2D")
 
-[node name="Sprite2D" type="Sprite2D" parent="PathFollow2D"]
-modulate = Color(0.780392, 0.0627451, 0.0627451, 1)
-texture = ExtResource("1_rpewc")
+[node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 [node name="Vision" type="Sprite2D" parent="PathFollow2D"]
 modulate = Color(1, 1, 1, 0.47451)
