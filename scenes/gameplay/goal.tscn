@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://xebbo3bo5tth"]
+
+[ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="1_yseug"]
+[ext_resource type="Script" path="res://scenes/gameplay/goal.gd" id="2_p3vv7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
+size = Vector2(64, 64)
+
+[sub_resource type="Animation" id="Animation_i5gta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.101961, 1, 0.113725, 0.32549)]
+}
+
+[sub_resource type="Animation" id="Animation_devuv"]
+resource_name = "glow"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.101961, 1, 0.113725, 0.32549), Color(0.101961, 1, 0.113725, 0.0980392)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gp1mo"]
+_data = {
+"RESET": SubResource("Animation_i5gta"),
+"glow": SubResource("Animation_devuv")
+}
+
+[node name="Goal" type="Sprite2D"]
+modulate = Color(0.101961, 1, 0.113725, 0.32549)
+scale = Vector2(4, 4)
+texture = ExtResource("1_yseug")
+script = ExtResource("2_p3vv7")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-30.3803, -274.908)
+scale = Vector2(0.0465242, 0.369004)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(653, 745)
+scale = Vector2(21.4942, 2.71)
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "glow"
+libraries = {
+"": SubResource("AnimationLibrary_gp1mo")
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
