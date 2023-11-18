@@ -57,4 +57,4 @@ shape = SubResource("RectangleShape2D_asw6l")
 [node name="Goal" parent="." instance=ExtResource("3_ue43w")]
 position = Vector2(978, -2)
 
-[connection signal="player_entered_goal" from="Goal" to="." method="_on_goal_player_entered_goal"]
+[connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]

@@ -25,8 +25,14 @@ func load_menu():
 func unload_current_level() -> void:
 	current_level.queue_free()
 
+func reload_current_level() -> void:
+	current_level.queue_free()
+	load_level(levels[current_level_index])
+
 func load_level(scene: PackedScene) -> void:
 	current_level = scene.instantiate()
 	if current_level.has_signal("level_finished"):
 		current_level.level_finished.connect(load_next_level)
+	if current_level.has_signal("restart_level"):
+		current_level.restart_level.connect(reload_current_level)
 	add_child(current_level)

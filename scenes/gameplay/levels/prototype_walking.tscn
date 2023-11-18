@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=3 uid="uid://cov0aufcx8htv"]
+
+[ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_bgqyt"]
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="2_xgyva"]
+[ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_2sorj"]
+[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="4_j0bfn"]
+[ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="5_opudh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
+size = Vector2(64, 64)
+
+[sub_resource type="Curve2D" id="Curve2D_sw4d7"]
+_data = {
+"points": PackedVector2Array(36.1465, -42.8373, -36.1465, 42.8373, 0, 0, -34.0466, -33.1147, 34.0466, 33.1147, 0, 256, -25.6716, 27.4465, 25.6716, -27.4465, 300, 256, 23.4134, 20.7557, -23.4134, -20.7557, 300, 0, 36.4435, -42.7631, -36.4435, 42.7631, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_0dulf"]
+_data = {
+"points": PackedVector2Array(-17.818, 0.0915108, 17.818, -0.0915108, 0, 0, 21.3816, 0.252697, -21.3816, -0.252697, 0, 200, -16.0362, -0.396633, 16.0362, 0.396633, 0, 0)
+}
+point_count = 3
+
+[node name="prototype" type="Node2D"]
+script = ExtResource("1_bgqyt")
+
+[node name="Player" parent="." instance=ExtResource("2_xgyva")]
+position = Vector2(159, 45)
+
+[node name="Wall" type="Sprite2D" parent="."]
+position = Vector2(499, 223)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall2" type="Sprite2D" parent="."]
+position = Vector2(806, 221)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall3" type="Sprite2D" parent="."]
+position = Vector2(497, 455)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall4" type="Sprite2D" parent="."]
+position = Vector2(806, 455)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Goal" parent="." instance=ExtResource("4_j0bfn")]
+position = Vector2(1332, 338)
+
+[node name="PatrolCat" parent="." instance=ExtResource("5_opudh")]
+position = Vector2(655, 343)
+curve = SubResource("Curve2D_sw4d7")
+
+[node name="PatrolCat2" parent="." instance=ExtResource("5_opudh")]
+position = Vector2(287, 341)
+curve = SubResource("Curve2D_0dulf")
+
+[connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]
+[connection signal="player_caught" from="PatrolCat" to="." method="_on_player_caught"]
+[connection signal="player_caught" from="PatrolCat2" to="." method="_on_player_caught"]

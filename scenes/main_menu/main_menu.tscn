@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ded30fv8t1e7m"]
+[gd_scene load_steps=8 format=3 uid="uid://ded30fv8t1e7m"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_x4ujg"]
 [ext_resource type="PackedScene" uid="uid://dsuf565vxlltg" path="res://scenes/game_manager/game_manager.tscn" id="2_7x8k3"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnpmbebgrb7ic" path="res://scenes/gameplay/levels/level_0.tscn" id="3_q5bli"]
 [ext_resource type="PackedScene" uid="uid://fulqqggki2ng" path="res://scenes/gameplay/levels/prototype_1.tscn" id="4_m2ka3"]
 [ext_resource type="PackedScene" uid="uid://cbnmdx7bwqyda" path="res://scenes/gameplay/levels/prototype_2.tscn" id="5_xged8"]
+[ext_resource type="PackedScene" uid="uid://cov0aufcx8htv" path="res://scenes/gameplay/levels/prototype_walking.tscn" id="7_b72do"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -58,7 +59,7 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 text = "Prototipo 2"
 script = ExtResource("3_jqpdx")
-scene = Array[PackedScene]([ExtResource("5_xged8")])
+scene = Array[PackedScene]([ExtResource("7_b72do")])
 
 [connection signal="load_level" from="VBoxContainer/PlayGameButton" to="." method="_on_load_level"]
 [connection signal="pressed" from="VBoxContainer/PlayGameButton" to="VBoxContainer/PlayGameButton" method="_on_pressed"]
