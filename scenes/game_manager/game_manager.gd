@@ -26,7 +26,7 @@ func unload_current_level() -> void:
 	current_level.queue_free()
 
 func reload_current_level() -> void:
-	current_level.queue_free()
+	unload_current_level()
 	load_level(levels[current_level_index])
 
 func load_level(scene: PackedScene) -> void:

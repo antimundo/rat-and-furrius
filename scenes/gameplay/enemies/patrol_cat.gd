@@ -9,3 +9,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_player_entered_enemy_vision() -> void:
 	player_caught.emit()
+
+
+func _on_player_entered_enemy_weak_spot() -> void:
+	queue_free()
+
