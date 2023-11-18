@@ -36,3 +36,7 @@ func load_level(scene: PackedScene) -> void:
 	if current_level.has_signal("restart_level"):
 		current_level.restart_level.connect(reload_current_level)
 	add_child(current_level)
+
+
+func _on_end_game_timer_timeout() -> void:
+	load_menu()

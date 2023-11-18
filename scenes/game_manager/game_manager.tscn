@@ -1,6 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsuf565vxlltg"]
+[gd_scene load_steps=3 format=3 uid="uid://dsuf565vxlltg"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/game_manager.gd" id="1_woiw8"]
+[ext_resource type="Script" path="res://scenes/game_manager/end_game_timer.gd" id="2_ln6gs"]
 
 [node name="game_manager" type="Node"]
 script = ExtResource("1_woiw8")
+
+[node name="Control" type="Control" parent="."]
+z_index = 2000
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="Control"]
+offset_left = 1109.0
+offset_top = 36.0
+offset_right = 1263.0
+offset_bottom = 92.0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+offset_left = 12.0
+offset_top = 14.0
+offset_right = 89.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Time left: "
+
+[node name="TimerValue" type="Label" parent="Control/Panel"]
+unique_name_in_owner = true
+offset_left = 102.0
+offset_top = 14.0
+offset_right = 143.0
+offset_bottom = 40.0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "99.99"
+
+[node name="EndGameTimer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+script = ExtResource("2_ln6gs")
+
+[connection signal="timeout" from="EndGameTimer" to="." method="_on_end_game_timer_timeout"]
