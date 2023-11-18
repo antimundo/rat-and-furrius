@@ -12,7 +12,7 @@ size = Vector2(64, 64)
 position = Vector2(159, 45)
 
 [node name="Wall" type="Sprite2D" parent="."]
-position = Vector2(245, 162)
+position = Vector2(499, 223)
 texture = ExtResource("2_vi2r5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
@@ -21,7 +21,7 @@ texture = ExtResource("2_vi2r5")
 shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Wall2" type="Sprite2D" parent="."]
-position = Vector2(517, 167)
+position = Vector2(806, 221)
 texture = ExtResource("2_vi2r5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
@@ -30,7 +30,7 @@ texture = ExtResource("2_vi2r5")
 shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Wall3" type="Sprite2D" parent="."]
-position = Vector2(241, 387)
+position = Vector2(497, 455)
 texture = ExtResource("2_vi2r5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
@@ -39,7 +39,7 @@ texture = ExtResource("2_vi2r5")
 shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Wall4" type="Sprite2D" parent="."]
-position = Vector2(512, 393)
+position = Vector2(806, 455)
 texture = ExtResource("2_vi2r5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
