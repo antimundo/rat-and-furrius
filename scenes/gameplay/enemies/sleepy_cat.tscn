@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd1gi8jk1bb2o"]
+[gd_scene load_steps=14 format=3 uid="uid://bd1gi8jk1bb2o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_mb5vl"]
 [ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fa6an"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ceqjy7tvbysq3" path="res://assets/sprites/Cat_SleepyG.png" id="5_mobak"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_ettpo"]
 [ext_resource type="AudioStream" uid="uid://cvch4btmiy2h1" path="res://assets/audio/sword_slash_squash.mp3" id="6_pnchk"]
+[ext_resource type="PackedScene" uid="uid://coidy6fgutbu1" path="res://scenes/gameplay/enemies/destroy_effects.tscn" id="10_y0rmr"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
 
@@ -36,6 +37,8 @@ sprite_blue = ExtResource("2_fa6an")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("6_pnchk")
+
+[node name="effects" parent="." instance=ExtResource("10_y0rmr")]
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 

@@ -5,8 +5,13 @@ class_name Cat
 signal player_caught
 
 enum Weakness { all, red, green, blue }
+enum CatType { sleepy, patrol }
 
-@export var speed:float = 100.
+## Type of cat
+@export var type: CatType
+## Speed of the cat if it moves
+@export var speed := 100.0
+## Color that this cat is weak to
 @export var weakness: Weakness = Weakness.red
 
 @export_group("Pulse")
@@ -26,9 +31,10 @@ var enabled: bool = true
 func _ready() -> void:
 	%Sprite2D.set_sprite(weakness)
 	%WeakSpot.weakness = weakness
-	$PathFollow2D/Vision.scale = Vector2(0, 0)
-	await get_tree().create_timer(delay_first_pulse).timeout
-	animate_pulse()
+	if type == CatType.sleepy:
+		$PathFollow2D/Vision.scale = Vector2(0, 0)
+		await get_tree().create_timer(delay_first_pulse).timeout
+		animate_pulse()
 
 func connect_player_caught(level_manager):
 	if level_manager.has_method("_on_player_caught"):
@@ -41,11 +47,15 @@ func _physics_process(delta: float) -> void:
 func _on_player_entered_enemy_vision() -> void:
 	player_caught.emit()
 
-func _on_player_entered_enemy_weak_spot() -> void:
+func _on_player_entered_enemy_weak_spot(player) -> void:
 	enabled = false
 	$PathFollow2D/Vision/Area2D.monitoring = false
 	%WeakSpot.set_deferred("monitoring", false)
 	TEMPORAL_play_killed_sound()
+	$effects.position = $PathFollow2D/Vision.position
+	$effects.look_at(get_global_mouse_position())
+	$effects/AnimationPlayer.play("attack")
+	await $effects/AnimationPlayer.animation_finished
 	queue_free()
 
 func animate_pulse():

@@ -2,7 +2,7 @@ extends Area2D
 ## Used in levels to signal a player reached the end
 ## Also used in cheese to signal the player got the cheese
 
-signal player_entered_enemy_weak_spot
+signal player_entered_enemy_weak_spot(player)
 
 var weakness: Cat.Weakness
 
@@ -22,4 +22,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		if body.has_method("get_current_weapon"):
 			if is_weak_against(body.get_current_weapon()):
-				player_entered_enemy_weak_spot.emit()
+				player_entered_enemy_weak_spot.emit(body)
