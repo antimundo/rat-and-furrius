@@ -1,5 +1,6 @@
 extends Area2D
 ## Used in levels to signal a player reached the end
+## Also used in cheese to signal the player got the cheese
 
 signal player_entered_enemy_weak_spot
 

@@ -1,4 +1,5 @@
 extends Sprite2D
+# Used in levels to increase the time the player has left
 
 @export var time_to_add: float = 2.0
 

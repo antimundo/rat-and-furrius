@@ -1,4 +1,5 @@
 extends Path2D
+## Used in enemy cats to follow a path and react to signals
 
 signal player_caught
 
