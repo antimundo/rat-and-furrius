@@ -1,30 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://fulqqggki2ng"]
+[gd_scene load_steps=9 format=3 uid="uid://fulqqggki2ng"]
 
-[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_cw13g"]
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="1_cw13g"]
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_vq4qc"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_milvi"]
-[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_ue43w"]
-[ext_resource type="PackedScene" uid="uid://bd1gi8jk1bb2o" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="5_kbuvp"]
-[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/time_cheese.tscn" id="6_lmhf1"]
+[ext_resource type="PackedScene" uid="uid://civfs86jhk8a2" path="res://scenes/gameplay/props/door.tscn" id="3_i0yuo"]
+[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="3_ue43w"]
+[ext_resource type="PackedScene" uid="uid://chov81hcsj8vx" path="res://scenes/gameplay/props/button.tscn" id="4_8kjg3"]
+[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="6_lmhf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
-
-[sub_resource type="Curve2D" id="Curve2D_uyjxd"]
-_data = {
-"points": PackedVector2Array(-0.8909, -27.5077, 0.8909, 27.5077, 0, 0, 0.334999, 42.4725, -0.334999, -42.4725, 300, 0, 0, -32.8017, 0, 32.8017, 0, 0)
-}
-point_count = 3
-
-[sub_resource type="Curve2D" id="Curve2D_11wuo"]
 
 [node name="prototype" type="Node2D"]
 script = ExtResource("1_vq4qc")
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Player" parent="Level" instance=ExtResource("1_cw13g")]
-position = Vector2(231, 67)
+[node name="Goal" parent="Level" instance=ExtResource("3_ue43w")]
+position = Vector2(978, -2)
 
 [node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(607, 199)
@@ -66,16 +59,14 @@ texture = ExtResource("2_milvi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall4/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Goal" parent="Level" instance=ExtResource("3_ue43w")]
-position = Vector2(978, -2)
+[node name="Door" parent="Level" instance=ExtResource("3_i0yuo")]
+position = Vector2(987, 109)
 
-[node name="SleepyCat" parent="Level" instance=ExtResource("5_kbuvp")]
-position = Vector2(450, 570)
-curve = SubResource("Curve2D_uyjxd")
+[node name="Button" parent="Level" instance=ExtResource("4_8kjg3")]
+position = Vector2(600, 567)
 
-[node name="SleepyCat2" parent="Level" instance=ExtResource("5_kbuvp")]
-position = Vector2(970, 300)
-curve = SubResource("Curve2D_11wuo")
+[node name="Player" parent="Level" instance=ExtResource("1_cw13g")]
+position = Vector2(231, 67)
 
 [node name="Cheese" type="Node2D" parent="."]
 
@@ -86,3 +77,5 @@ position = Vector2(132, 604)
 position = Vector2(1120, 601)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
+[connection signal="door_closed" from="Level/Door" to="Level/Button" method="reset_button"]
+[connection signal="button_pressed" from="Level/Button" to="Level/Door" method="open_door"]

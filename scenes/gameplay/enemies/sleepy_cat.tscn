@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_mb5vl"]
 [ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fa6an"]
-[ext_resource type="Script" path="res://scenes/gameplay/follow.gd" id="3_cv1dy"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/follow.gd" id="3_cv1dy"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="4_mqvup"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_m4fif"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_ettpo"]

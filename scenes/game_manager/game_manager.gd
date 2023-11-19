@@ -27,7 +27,7 @@ func unload_current_level() -> void:
 
 func reload_current_level(cheeses: Node2D) -> void:
 	var last_level = current_level
-	cheeses.reparent(self)
+	cheeses.call_deferred("reparent", self)
 	load_level(levels[current_level_index])
 	current_level.call_deferred("add_cheeses", cheeses)
 	last_level.queue_free()

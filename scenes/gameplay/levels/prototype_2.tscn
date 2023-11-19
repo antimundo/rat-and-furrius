@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbnmdx7bwqyda"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_f14uh"]
-[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_iotvb"]
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="1_iotvb"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_vi2r5"]
-[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_q7e1g"]
-[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/time_cheese.tscn" id="5_ioew0"]
+[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="3_q7e1g"]
+[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_ioew0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)

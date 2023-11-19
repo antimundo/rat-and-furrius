@@ -27,7 +27,10 @@ func get_input():
 		$Weapon/Sprite.scale.x = 1
 		velocity = transform.x * 0
 		if distance < UNSNAP_DISTANCE / 4:
+			if not is_snapped:
+				$MouseSnapSound.play()
 			is_snapped = true
+			
 	last_position = position
 
 func _physics_process(_delta):
