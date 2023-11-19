@@ -37,6 +37,9 @@ func _physics_process(_delta):
 	get_input()
 	move_and_slide()
 
+func get_current_weapon() -> WeaponPick.weapon_types:
+	return $Weapon.current_weapon
+
 func change_weapon(new_weapon):
 	var old_weapon = $Weapon.current_weapon
 	$Weapon.current_weapon = new_weapon

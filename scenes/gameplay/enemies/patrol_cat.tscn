@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://b80k0bgl3c61d"]
+[gd_scene load_steps=12 format=3 uid="uid://b80k0bgl3c61d"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_3cni5"]
 [ext_resource type="Texture2D" uid="uid://chr1i2reijjlx" path="res://assets/sprites/Cat_patrol.png" id="2_2fkh4"]
-[ext_resource type="Script" path="res://scenes/gameplay/enemies/follow.gd" id="3_gvhe8"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="4_3rp4t"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="4_ajana"]
 [ext_resource type="Texture2D" uid="uid://cuh6mt1bdnkhw" path="res://assets/sprites/cone_vision.svg" id="4_wa5gq"]
+[ext_resource type="AudioStream" uid="uid://cvch4btmiy2h1" path="res://assets/audio/sword_slash_squash.mp3" id="5_wyje3"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/cat_sprite.gd" id="6_jj2yl"]
+[ext_resource type="Texture2D" uid="uid://oa6fug33uyv4" path="res://assets/sprites/Cat_patrolG.png" id="8_fbhgn"]
+[ext_resource type="Texture2D" uid="uid://bmof722angcsm" path="res://assets/sprites/Cat_patrolB.png" id="9_6nxu5"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
 
@@ -13,9 +16,208 @@
 radius = 31.0
 height = 62.0
 
+[sub_resource type="Curve" id="Curve_r2oll"]
+_data = [Vector2(0.00266666, 0.305263), 0.0, -5.38277, 0, 0, Vector2(0.168, 0.568421), -2.85088, -2.85088, 0, 0, Vector2(0.213333, 0.115789), 0.0, 0.0, 0, 0, Vector2(0.304, 0.88421), -3.78289, -3.78289, 0, 0, Vector2(1, 0), -0.0777487, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Animation" id="Animation_vgcfl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("effects/Circle:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("effects/Circle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(87, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("effects/Circle:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("effects/Circle:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.185, 0.185)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("effects/Circle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_740c2"]
+resource_name = "destroy"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("effects/Slice:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(200, 0), Vector2(-50, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("effects/Slice:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("effects/Circle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("effects/Circle:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(87, 0), Vector2(-77, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("effects/Circle:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("effects/Circle:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(4, 1), Vector2(0.5, 4)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite2D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.515, 0.05), Vector2(0.11, 0.37), Vector2(0.385, 0.06), Vector2(0.185, 0.185)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("effects/Circle:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jcjvo"]
+_data = {
+"RESET": SubResource("Animation_vgcfl"),
+"destroy": SubResource("Animation_740c2")
+}
+
 [node name="PatrolCat" type="Path2D"]
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_3cni5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+unique_name_in_owner = true
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("2_2fkh4")
+script = ExtResource("6_jj2yl")
+node_to_follow = NodePath("../PathFollow2D")
+sprite_red = ExtResource("2_2fkh4")
+sprite_green = ExtResource("8_fbhgn")
+sprite_blue = ExtResource("9_6nxu5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_wyje3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
@@ -33,18 +235,14 @@ script = ExtResource("4_ajana")
 polygon = PackedVector2Array(684.572, -466.667, 809.572, -200, 817.905, 191.667, 709.572, 458.333, -798.762, 125, -798.762, -116.667)
 
 [node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
+unique_name_in_owner = true
 script = ExtResource("4_3rp4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]
 shape = SubResource("CapsuleShape2D_jednb")
 
-[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
-scale = Vector2(0.185, 0.185)
-texture = ExtResource("2_2fkh4")
-script = ExtResource("3_gvhe8")
-node_to_follow = NodePath("../PathFollow2D")
-
 [connection signal="body_entered" from="PathFollow2D/Vision/Area2D" to="PathFollow2D/Vision/Area2D" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]
 [connection signal="body_entered" from="PathFollow2D/WeakSpot" to="PathFollow2D/WeakSpot" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_weak_spot" from="PathFollow2D/WeakSpot" to="." method="_on_player_entered_enemy_weak_spot"]
+[connection signal="timeout" from="CheesePickParticle/Timer" to="CheesePickParticle" method="_on_timer_timeout" flags=18]

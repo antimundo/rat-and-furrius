@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bd1gi8jk1bb2o"]
+[gd_scene load_steps=16 format=3 uid="uid://bd1gi8jk1bb2o"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_mb5vl"]
 [ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fa6an"]
-[ext_resource type="Script" path="res://scenes/gameplay/enemies/follow.gd" id="3_cv1dy"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/cat_sprite.gd" id="3_cv1dy"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="4_mqvup"]
+[ext_resource type="Texture2D" uid="uid://sg7ejjrowlyy" path="res://assets/sprites/Cat_SleepyR.png" id="4_ngdde"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_m4fif"]
+[ext_resource type="Texture2D" uid="uid://ceqjy7tvbysq3" path="res://assets/sprites/Cat_SleepyG.png" id="5_mobak"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_ettpo"]
+[ext_resource type="AudioStream" uid="uid://cvch4btmiy2h1" path="res://assets/audio/sword_slash_squash.mp3" id="6_pnchk"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
 
@@ -57,12 +60,21 @@ height = 62.0
 [node name="SleepyCat" type="Path2D"]
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_mb5vl")
+weakness = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+unique_name_in_owner = true
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("2_fa6an")
 script = ExtResource("3_cv1dy")
 node_to_follow = NodePath("../PathFollow2D")
+sprite_red = ExtResource("4_ngdde")
+sprite_green = ExtResource("5_mobak")
+sprite_blue = ExtResource("2_fa6an")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_pnchk")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
@@ -86,6 +98,7 @@ script = ExtResource("5_m4fif")
 shape = SubResource("CircleShape2D_yd51y")
 
 [node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
+unique_name_in_owner = true
 script = ExtResource("6_ettpo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]

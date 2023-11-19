@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fulqqggki2ng"]
+[gd_scene load_steps=11 format=3 uid="uid://fulqqggki2ng"]
 
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="1_cw13g"]
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_vq4qc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="3_ue43w"]
 [ext_resource type="PackedScene" uid="uid://chov81hcsj8vx" path="res://scenes/gameplay/props/button.tscn" id="4_8kjg3"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="6_lmhf1"]
+[ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="7_vrqm1"]
+[ext_resource type="PackedScene" uid="uid://bd1gi8jk1bb2o" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="8_d58g1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -64,6 +66,16 @@ position = Vector2(987, 109)
 
 [node name="Button" parent="Level" instance=ExtResource("4_8kjg3")]
 position = Vector2(600, 567)
+
+[node name="SleepyCat" parent="Level" instance=ExtResource("8_d58g1")]
+position = Vector2(332, 567)
+
+[node name="SleepyCat2" parent="Level" instance=ExtResource("8_d58g1")]
+position = Vector2(900, 567)
+
+[node name="WeaponPick" parent="Level" instance=ExtResource("7_vrqm1")]
+position = Vector2(990, 344)
+current_weapon = 2
 
 [node name="Player" parent="Level" instance=ExtResource("1_cw13g")]
 position = Vector2(231, 67)
