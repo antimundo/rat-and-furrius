@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cov0aufcx8htv"]
+[gd_scene load_steps=11 format=3 uid="uid://cov0aufcx8htv"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_bgqyt"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="2_xgyva"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="4_j0bfn"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="5_opudh"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="6_wa0g7"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="7_qxfwv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -146,5 +147,17 @@ position = Vector2(961, 600)
 
 [node name="TimeCheese6" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(657, 83)
+
+[node name="DestroyableBox" parent="." instance=ExtResource("7_qxfwv")]
+position = Vector2(132, 546)
+
+[node name="DestroyableBox2" parent="." instance=ExtResource("7_qxfwv")]
+position = Vector2(129, 387)
+
+[node name="DestroyableBox3" parent="." instance=ExtResource("7_qxfwv")]
+position = Vector2(146, 239)
+
+[node name="DestroyableBox4" parent="." instance=ExtResource("7_qxfwv")]
+position = Vector2(270, 623)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
