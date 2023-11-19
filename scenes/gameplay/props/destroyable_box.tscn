@@ -1,12 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://bxanlhtgoexvp"]
+[gd_scene load_steps=10 format=3 uid="uid://bpdqagyo7yown"]
 
-[ext_resource type="Texture2D" uid="uid://bq1ovemvxevcu" path="res://assets/sprites/REEMPLAZAR_emoji_queso_twitter.png" id="1_61onc"]
-[ext_resource type="Script" path="res://scenes/gameplay/props/time_cheese.gd" id="2_1eolw"]
-[ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="2_kr71m"]
-[ext_resource type="AudioStream" uid="uid://nm6kr6l5ek7h" path="res://assets/audio/sword_slash_cheese.ogg" id="4_gvcl6"]
+[ext_resource type="Script" path="res://scenes/gameplay/props/destroyable_box.gd" id="1_bmu5q"]
+[ext_resource type="Texture2D" uid="uid://1kckqrukphd8" path="res://assets/sprites/Box.png" id="1_f0gpv"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="3_je6cw"]
+[ext_resource type="AudioStream" uid="uid://spkc5vsnopx7" path="res://assets/audio/sword_slash_crate.ogg" id="4_m3n7q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_d6lpd"]
-radius = 60.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tf4nk"]
+size = Vector2(72, 72)
 
 [sub_resource type="Animation" id="Animation_5a0op"]
 length = 0.001
@@ -133,16 +133,19 @@ _data = {
 "pickup": SubResource("Animation_2oq4l")
 }
 
-[node name="TimeCheese" type="Sprite2D"]
-texture = ExtResource("1_61onc")
-script = ExtResource("2_1eolw")
-pickup_color = Color(1, 0.67451, 0.2, 1)
+[node name="DestroyableBox" type="Node2D"]
+script = ExtResource("1_bmu5q")
+pickup_color = Color(0.772549, 0.615686, 0.647059, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_f0gpv")
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("2_kr71m")
+script = ExtResource("3_je6cw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_d6lpd")
+shape = SubResource("RectangleShape2D_tf4nk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
@@ -151,7 +154,7 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_gvcl6")
+stream = ExtResource("4_m3n7q")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_weak_spot" from="Area2D" to="." method="_on_player_entered_enemy_weak_spot"]
