@@ -9,33 +9,37 @@
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_fgpct")
 
-[node name="Player" parent="." instance=ExtResource("1_b3dob")]
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource("1_b3dob")]
 position = Vector2(85, 55)
 
-[node name="Goal" parent="." instance=ExtResource("3_hc02h")]
+[node name="Goal" parent="Level" instance=ExtResource("3_hc02h")]
 position = Vector2(1318, 359)
 
-[node name="TimeCheese" parent="." instance=ExtResource("5_2eoy1")]
-position = Vector2(413, 344)
-
-[node name="TimeCheese2" parent="." instance=ExtResource("5_2eoy1")]
-position = Vector2(653, 126)
-
-[node name="TimeCheese3" parent="." instance=ExtResource("5_2eoy1")]
-position = Vector2(893, 342)
-
-[node name="TimeCheese4" parent="." instance=ExtResource("5_2eoy1")]
-position = Vector2(637, 571)
-
-[node name="WeaponPick" parent="." instance=ExtResource("6_rty11")]
+[node name="WeaponPick" parent="Level" instance=ExtResource("6_rty11")]
 position = Vector2(376, 154)
 
-[node name="WeaponPick2" parent="." instance=ExtResource("6_rty11")]
+[node name="WeaponPick2" parent="Level" instance=ExtResource("6_rty11")]
 position = Vector2(825, 150)
 current_weapon = 1
 
-[node name="WeaponPick3" parent="." instance=ExtResource("6_rty11")]
+[node name="WeaponPick3" parent="Level" instance=ExtResource("6_rty11")]
 position = Vector2(946, 541)
 current_weapon = 2
 
-[connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]
+[node name="Cheese" type="Node2D" parent="."]
+
+[node name="TimeCheese" parent="Cheese" instance=ExtResource("5_2eoy1")]
+position = Vector2(413, 344)
+
+[node name="TimeCheese2" parent="Cheese" instance=ExtResource("5_2eoy1")]
+position = Vector2(653, 126)
+
+[node name="TimeCheese3" parent="Cheese" instance=ExtResource("5_2eoy1")]
+position = Vector2(893, 342)
+
+[node name="TimeCheese4" parent="Cheese" instance=ExtResource("5_2eoy1")]
+position = Vector2(637, 571)
+
+[connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_2sorj"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="4_j0bfn"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="5_opudh"]
-[ext_resource type="PackedScene" uid="uid://2gyekiekmnc4" path="res://scenes/gameplay/time_cheese.tscn" id="6_wa0g7"]
+[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/time_cheese.tscn" id="6_wa0g7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -64,6 +64,56 @@ texture = ExtResource("3_2sorj")
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall4"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall4/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall5" type="Sprite2D" parent="Level"]
+position = Vector2(-7, 357)
+scale = Vector2(1, 11.64)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall5/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall6" type="Sprite2D" parent="Level"]
+position = Vector2(636, 725)
+scale = Vector2(21.1158, 0.999997)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall6/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall7" type="Sprite2D" parent="Level"]
+position = Vector2(637, -4)
+scale = Vector2(21.1158, 0.999997)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall7/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall8" type="Sprite2D" parent="Level"]
+position = Vector2(1280, 95)
+scale = Vector2(1.47578, 4.04)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall8/StaticBody2D"]
+shape = SubResource("RectangleShape2D_asw6l")
+
+[node name="Wall9" type="Sprite2D" parent="Level"]
+position = Vector2(1280, 595)
+scale = Vector2(1.47578, 4.04)
+texture = ExtResource("3_2sorj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall9/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Goal" parent="Level" instance=ExtResource("4_j0bfn")]
