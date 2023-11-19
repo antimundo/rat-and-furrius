@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbnmdx7bwqyda"]
+[gd_scene load_steps=9 format=3 uid="uid://cbnmdx7bwqyda"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_f14uh"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="1_iotvb"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_vi2r5"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="3_q7e1g"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_ioew0"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_6i2mr"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_6i2mr"]
+[ext_resource type="PackedScene" uid="uid://dy455syli031w" path="res://scenes/gameplay/props/spike.tscn" id="7_hvso7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -76,5 +77,8 @@ position = Vector2(665, 592)
 
 [node name="DestroyableBox" parent="." instance=ExtResource("6_6i2mr")]
 position = Vector2(175, 489)
+
+[node name="PatrolCat" parent="." instance=ExtResource("7_hvso7")]
+position = Vector2(322, 124)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]

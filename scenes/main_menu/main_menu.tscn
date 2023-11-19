@@ -59,7 +59,7 @@ custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 text = "Prototipo 2"
 script = ExtResource("3_jqpdx")
-scene = Array[PackedScene]([ExtResource("7_b72do")])
+scene = Array[PackedScene]([ExtResource("5_xged8")])
 
 [connection signal="load_level" from="VBoxContainer/PlayGameButton" to="." method="_on_load_level"]
 [connection signal="pressed" from="VBoxContainer/PlayGameButton" to="VBoxContainer/PlayGameButton" method="_on_pressed"]

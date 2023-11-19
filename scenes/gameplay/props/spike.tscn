@@ -1,16 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwa6qbxkiffs0"]
+[gd_scene load_steps=4 format=3 uid="uid://dy455syli031w"]
 
-[ext_resource type="Texture2D" uid="uid://ccow7ru30eflo" path="res://assets/sprites/Spikes.png" id="1_g6lyt"]
+[ext_resource type="Texture2D" uid="uid://cwii6qut11khp" path="res://assets/sprites/Spikes.png" id="1_g6lyt"]
+[ext_resource type="Script" path="res://scenes/gameplay/props/spike.gd" id="2_b8n07"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qusf3"]
 radius = 22.0
 height = 90.0
 
-[node name="PatrolCat" type="Sprite2D"]
+[node name="Spike" type="Sprite2D"]
 texture = ExtResource("1_g6lyt")
 
 [node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_b8n07")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 34)
 shape = SubResource("CapsuleShape2D_qusf3")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
