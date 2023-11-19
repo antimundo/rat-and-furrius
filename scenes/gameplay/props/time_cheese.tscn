@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bxanlhtgoexvp"]
 
-[ext_resource type="Texture2D" uid="uid://bq1ovemvxevcu" path="res://assets/sprites/REEMPLAZAR_emoji_queso_twitter.png" id="1_61onc"]
+[ext_resource type="Texture2D" uid="uid://vklv1acxd3xl" path="res://assets/sprites/Cheese.png" id="1_70x7b"]
 [ext_resource type="Script" path="res://scenes/gameplay/props/time_cheese.gd" id="2_1eolw"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="2_kr71m"]
 [ext_resource type="AudioStream" uid="uid://nm6kr6l5ek7h" path="res://assets/audio/sword_slash_cheese.ogg" id="4_gvcl6"]
@@ -134,9 +134,9 @@ _data = {
 }
 
 [node name="TimeCheese" type="Sprite2D"]
-texture = ExtResource("1_61onc")
+texture = ExtResource("1_70x7b")
 script = ExtResource("2_1eolw")
-pickup_color = Color(1, 0.67451, 0.2, 1)
+pickup_color = Color(0.952941, 0.827451, 0.678431, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_kr71m")
