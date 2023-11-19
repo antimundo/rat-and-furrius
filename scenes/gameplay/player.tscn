@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bijr1niobi180"]
+[gd_scene load_steps=19 format=3 uid="uid://bijr1niobi180"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/player.gd" id="1_qh5oh"]
 [ext_resource type="Script" path="res://scenes/gameplay/player_weapon.gd" id="2_2fm5i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dop8nj5r7a62f" path="res://assets/sprites/Mouse_Sprite.png" id="2_u4q6q"]
 [ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_xlbxk"]
 [ext_resource type="Script" path="res://scenes/gameplay/player_tail.gd" id="4_ci5k6"]
+[ext_resource type="AudioStream" uid="uid://byqryh54qat26" path="res://assets/audio/mouse_snap.ogg" id="7_lsi4b"]
 
 [sub_resource type="Animation" id="Animation_yl3nl"]
 resource_name = "pickup"
@@ -143,3 +144,6 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_y38pr")
+
+[node name="MouseSnapSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_lsi4b")
