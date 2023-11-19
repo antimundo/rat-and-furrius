@@ -25,9 +25,12 @@ func load_menu():
 func unload_current_level() -> void:
 	current_level.queue_free()
 
-func reload_current_level() -> void:
-	unload_current_level()
+func reload_current_level(cheeses: Node2D) -> void:
+	var last_level = current_level
+	cheeses.reparent(self)
 	load_level(levels[current_level_index])
+	current_level.add_cheeses(cheeses)
+	last_level.queue_free()
 
 func load_level(scene: PackedScene) -> void:
 	current_level = scene.instantiate()

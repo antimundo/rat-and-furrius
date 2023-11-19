@@ -7,10 +7,17 @@ extends Node2D
 ## These signals are consumed by the game manager in ./scenes/game_manager/GameManager.gd
 
 signal level_finished
-signal restart_level
+signal restart_level(cheeses: Node2D)
+
+@onready var cheese_container: Node2D = $Cheese
 
 func _on_player_caught() -> void:
-	restart_level.emit()
+	restart_level.emit(cheese_container)
 
 func _on_player_entered_goal() -> void:
 	level_finished.emit()
+
+func add_cheeses(cheeses: Node2D) -> void:
+	cheese_container.queue_free()
+	cheese_container = cheeses
+	cheeses.reparent(self)

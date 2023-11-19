@@ -25,74 +25,78 @@ point_count = 3
 [node name="prototype" type="Node2D"]
 script = ExtResource("1_bgqyt")
 
-[node name="Player" parent="." instance=ExtResource("2_xgyva")]
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource("2_xgyva")]
 position = Vector2(159, 45)
 
-[node name="Wall" type="Sprite2D" parent="."]
+[node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(499, 223)
 texture = ExtResource("3_2sorj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall2" type="Sprite2D" parent="."]
+[node name="Wall2" type="Sprite2D" parent="Level"]
 position = Vector2(806, 221)
 texture = ExtResource("3_2sorj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall2/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall3" type="Sprite2D" parent="."]
+[node name="Wall3" type="Sprite2D" parent="Level"]
 position = Vector2(497, 455)
 texture = ExtResource("3_2sorj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall3/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall4" type="Sprite2D" parent="."]
+[node name="Wall4" type="Sprite2D" parent="Level"]
 position = Vector2(806, 455)
 texture = ExtResource("3_2sorj")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall4"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall4/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Goal" parent="." instance=ExtResource("4_j0bfn")]
+[node name="Goal" parent="Level" instance=ExtResource("4_j0bfn")]
 position = Vector2(1332, 338)
 
-[node name="PatrolCat" parent="." instance=ExtResource("5_opudh")]
+[node name="PatrolCat" parent="Level" instance=ExtResource("5_opudh")]
 position = Vector2(655, 343)
 curve = SubResource("Curve2D_sw4d7")
 
-[node name="PatrolCat2" parent="." instance=ExtResource("5_opudh")]
+[node name="PatrolCat2" parent="Level" instance=ExtResource("5_opudh")]
 position = Vector2(287, 341)
 curve = SubResource("Curve2D_0dulf")
 
-[node name="TimeCheese" parent="." instance=ExtResource("6_wa0g7")]
+[node name="Cheese" type="Node2D" parent="."]
+
+[node name="TimeCheese" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(285, 434)
 
-[node name="TimeCheese2" parent="." instance=ExtResource("6_wa0g7")]
+[node name="TimeCheese2" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(655, 341)
 
-[node name="TimeCheese3" parent="." instance=ExtResource("6_wa0g7")]
+[node name="TimeCheese3" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(943, 332)
 
-[node name="TimeCheese4" parent="." instance=ExtResource("6_wa0g7")]
+[node name="TimeCheese4" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(649, 594)
 
-[node name="TimeCheese5" parent="." instance=ExtResource("6_wa0g7")]
+[node name="TimeCheese5" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(961, 600)
 
-[node name="TimeCheese6" parent="." instance=ExtResource("6_wa0g7")]
+[node name="TimeCheese6" parent="Cheese" instance=ExtResource("6_wa0g7")]
 position = Vector2(657, 83)
 
-[connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]
-[connection signal="player_caught" from="PatrolCat" to="." method="_on_player_caught"]
-[connection signal="player_caught" from="PatrolCat2" to="." method="_on_player_caught"]
+[connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
+[connection signal="player_caught" from="Level/PatrolCat" to="." method="_on_player_caught"]
+[connection signal="player_caught" from="Level/PatrolCat2" to="." method="_on_player_caught"]

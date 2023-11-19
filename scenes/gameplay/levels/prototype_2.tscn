@@ -12,61 +12,65 @@ size = Vector2(64, 64)
 [node name="prototype" type="Node2D"]
 script = ExtResource("1_f14uh")
 
-[node name="Player" parent="." instance=ExtResource("1_iotvb")]
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Player" parent="Level" instance=ExtResource("1_iotvb")]
 position = Vector2(159, 45)
 
-[node name="Wall" type="Sprite2D" parent="."]
+[node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(499, 223)
 texture = ExtResource("2_vi2r5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall2" type="Sprite2D" parent="."]
+[node name="Wall2" type="Sprite2D" parent="Level"]
 position = Vector2(806, 221)
 texture = ExtResource("2_vi2r5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall2"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall2"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall2/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall3" type="Sprite2D" parent="."]
+[node name="Wall3" type="Sprite2D" parent="Level"]
 position = Vector2(497, 455)
 texture = ExtResource("2_vi2r5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall3"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall3/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Wall4" type="Sprite2D" parent="."]
+[node name="Wall4" type="Sprite2D" parent="Level"]
 position = Vector2(806, 455)
 texture = ExtResource("2_vi2r5")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Wall4"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall4"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall4/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 
-[node name="Goal" parent="." instance=ExtResource("3_q7e1g")]
+[node name="Goal" parent="Level" instance=ExtResource("3_q7e1g")]
 position = Vector2(1332, 338)
 
-[node name="TimeCheese" parent="." instance=ExtResource("5_ioew0")]
+[node name="Cheese" type="Node2D" parent="."]
+
+[node name="TimeCheese" parent="Cheese" instance=ExtResource("5_ioew0")]
 position = Vector2(340, 337)
 
-[node name="TimeCheese2" parent="." instance=ExtResource("5_ioew0")]
+[node name="TimeCheese2" parent="Cheese" instance=ExtResource("5_ioew0")]
 position = Vector2(663, 340)
 
-[node name="TimeCheese3" parent="." instance=ExtResource("5_ioew0")]
+[node name="TimeCheese3" parent="Cheese" instance=ExtResource("5_ioew0")]
 position = Vector2(942, 345)
 
-[node name="TimeCheese4" parent="." instance=ExtResource("5_ioew0")]
+[node name="TimeCheese4" parent="Cheese" instance=ExtResource("5_ioew0")]
 position = Vector2(658, 116)
 
-[node name="TimeCheese5" parent="." instance=ExtResource("5_ioew0")]
+[node name="TimeCheese5" parent="Cheese" instance=ExtResource("5_ioew0")]
 position = Vector2(665, 592)
 
-[connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]
+[connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
