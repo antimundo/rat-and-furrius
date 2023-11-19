@@ -10,9 +10,11 @@ enum Weakness { all, red, green, blue }
 @export var weakness: Weakness = Weakness.red
 
 @export_group("Pulse")
-## Maximum size of the pulse
-@export var size_max := 3.0
 ## Time that the pulse stays off
+@export var size_max := 3.0
+## Delays the first pulse
+@export var delay_first_pulse := 0.0
+## Maximum size of the pulse
 @export var time_off := 1.0
 ## Time in the animation transition
 @export var time_animation := 1.0
@@ -25,6 +27,7 @@ func _ready() -> void:
 	%Sprite2D.set_sprite(weakness)
 	%WeakSpot.weakness = weakness
 	$PathFollow2D/Vision.scale = Vector2(0, 0)
+	await get_tree().create_timer(delay_first_pulse).timeout
 	animate_pulse()
 
 func connect_player_caught(level_manager):
