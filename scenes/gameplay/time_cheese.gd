@@ -8,3 +8,4 @@ func _on_player_entered_enemy_weak_spot() -> void:
 	var tween = get_tree().create_tween().parallel()
 	tween.tween_property(self, "scale", Vector2.ZERO, .2).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	tween.connect("finished", queue_free)
+	editor_description
