@@ -1,12 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ccn4q36ow8uji"]
+[gd_scene load_steps=8 format=3 uid="uid://ccn4q36ow8uji"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/weapons/weapon_pick.gd" id="1_2vjsw"]
 [ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_d15tf"]
-[ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="3_v3kf8"]
-
-[sub_resource type="Curve" id="Curve_r2oll"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cndi"]
 radius = 40.0
@@ -114,20 +109,6 @@ _data = {
 
 [node name="WeaponPick" type="Node2D"]
 script = ExtResource("1_2vjsw")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
-lifetime = 0.2
-one_shot = true
-explosiveness = 0.8
-texture = ExtResource("3_v3kf8")
-direction = Vector2(1, -1)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 400.0
-initial_velocity_max = 400.0
-scale_amount_curve = SubResource("Curve_r2oll")
-color = Color(0.47451, 0.188235, 0.309804, 1)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 3.66519

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/main_menu/main_menu.gd" id="1_x4ujg"]
 [ext_resource type="PackedScene" uid="uid://dsuf565vxlltg" path="res://scenes/game_manager/game_manager.tscn" id="2_7x8k3"]
 [ext_resource type="Script" path="res://scenes/main_menu/load_level_button.gd" id="3_jqpdx"]
-[ext_resource type="PackedScene" uid="uid://dnpmbebgrb7ic" path="res://scenes/gameplay/levels/level_0.tscn" id="3_q5bli"]
+[ext_resource type="PackedScene" uid="uid://bcnimij4eaggj" path="res://scenes/gameplay/levels/level_0.tscn" id="3_q5bli"]
 [ext_resource type="PackedScene" uid="uid://fulqqggki2ng" path="res://scenes/gameplay/levels/prototype_1.tscn" id="4_m2ka3"]
 [ext_resource type="PackedScene" uid="uid://cbnmdx7bwqyda" path="res://scenes/gameplay/levels/prototype_2.tscn" id="5_xged8"]
 [ext_resource type="PackedScene" uid="uid://cov0aufcx8htv" path="res://scenes/gameplay/levels/prototype_walking.tscn" id="7_b72do"]

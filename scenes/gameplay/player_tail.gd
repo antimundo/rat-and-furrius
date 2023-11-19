@@ -5,7 +5,7 @@ extends Line2D
 @export var gradient_green: Gradient
 @export var gradient_blue: Gradient
 
-func _process(delta):
+func _process(_delta):
 	global_position = Vector2(0, 0)
 	global_rotation = 0
 	
