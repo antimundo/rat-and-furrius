@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwa6qbxkiffs0"]
+
+[ext_resource type="Texture2D" uid="uid://ccow7ru30eflo" path="res://assets/sprites/Spikes.png" id="1_g6lyt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qusf3"]
+radius = 22.0
+height = 90.0
+
+[node name="PatrolCat" type="Sprite2D"]
+texture = ExtResource("1_g6lyt")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 34)
+shape = SubResource("CapsuleShape2D_qusf3")
