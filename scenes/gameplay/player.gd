@@ -37,4 +37,6 @@ func _physics_process(delta):
 func change_weapon(new_weapon):
 	var old_weapon = $Weapon.current_weapon
 	$Weapon.current_weapon = new_weapon
+	$Tail/Line2D.change_gradient(new_weapon)
+	$Weapon/AnimationPlayer.play("pickup")
 	return old_weapon

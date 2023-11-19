@@ -1,6 +1,9 @@
 extends Line2D
 
 @export var length = 50
+@export var gradient_red: Gradient
+@export var gradient_green: Gradient
+@export var gradient_blue: Gradient
 
 func _process(delta):
 	global_position = Vector2(0, 0)
@@ -12,3 +15,15 @@ func _process(delta):
 	
 	while get_point_count() > length:
 		remove_point(0)
+
+func change_gradient(weapon_type: WeaponPick.weapon_types):
+	gradient = get_weapon_gradient(weapon_type)
+
+func get_weapon_gradient(weapon_type: WeaponPick.weapon_types):
+	match weapon_type:
+			WeaponPick.weapon_types.red:
+				return gradient_red
+			WeaponPick.weapon_types.green:
+				return gradient_green
+			WeaponPick.weapon_types.blue:
+				return gradient_blue

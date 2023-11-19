@@ -1,7 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ccn4q36ow8uji"]
+[gd_scene load_steps=10 format=3 uid="uid://ccn4q36ow8uji"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/weapons/weapon_pick.gd" id="1_2vjsw"]
 [ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_d15tf"]
+[ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="3_v3kf8"]
+
+[sub_resource type="Curve" id="Curve_r2oll"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cndi"]
 radius = 40.0
@@ -19,6 +24,28 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.8, 0.8)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_uhdcy"]
@@ -38,14 +65,69 @@ tracks/0/keys = {
 "values": [Vector2(0.8, 0.8), Vector2(0.9, 0.9)]
 }
 
+[sub_resource type="Animation" id="Animation_rwsm7"]
+resource_name = "pickup"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.02993, -0.25, 0, 0.108283, -0.0164696, 0.863025, -0.109608, 0.00341576, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1.49886, -0.125, -0.00397396, 0.108283, -0.00640154, 0.835208, -0.175, -0.78287, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["idle"],
+"method": &"play"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_elvlr"]
 _data = {
 "RESET": SubResource("Animation_jwsgs"),
-"idle": SubResource("Animation_uhdcy")
+"idle": SubResource("Animation_uhdcy"),
+"pickup": SubResource("Animation_rwsm7")
 }
 
 [node name="WeaponPick" type="Node2D"]
 script = ExtResource("1_2vjsw")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.8
+texture = ExtResource("3_v3kf8")
+direction = Vector2(1, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 400.0
+initial_velocity_max = 400.0
+scale_amount_curve = SubResource("Curve_r2oll")
+color = Color(0.47451, 0.188235, 0.309804, 1)
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 3.66519
