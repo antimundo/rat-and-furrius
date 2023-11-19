@@ -1,21 +1,21 @@
 [gd_scene load_steps=10 format=3 uid="uid://d1rlaax0lm88e"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_wct6m"]
-[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="2_6pa5f"]
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="2_6pa5f"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_jty12"]
-[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="4_ev476"]
+[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="4_ev476"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="5_iun8a"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="6_afa0i"]
-[ext_resource type="PackedScene" uid="uid://2gyekiekmnc4" path="res://scenes/gameplay/time_cheese.tscn" id="7_wb8dv"]
+[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="7_wb8dv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_u5eg2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -81.98, 0, 0, 0, 0, 0, -82.4281, -175.08, 0, 0, 0, 0, 413.419, -174.441, 0, 0, 0, 0, 413.419, 1.27795, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -125.24, -1.91696, 0, 0, 0, 0, -133.096, -207.829, 0, 0, 0, 0, 392.171, -205.694, 0, 0, 0, 0, 433.452, 4.27045, 0, 0, 0, 0, 19.4254, 0.475037, 0, 0, 0, 0, 11.3747, 0.475037, 0, 0, 0, 0, 0, 0)
 }
-point_count = 6
+point_count = 8
 
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_wct6m")
@@ -23,7 +23,7 @@ script = ExtResource("1_wct6m")
 [node name="Level" type="Node2D" parent="."]
 
 [node name="Player" parent="Level" instance=ExtResource("2_6pa5f")]
-position = Vector2(172, 378)
+position = Vector2(259, 107)
 
 [node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(636.251, -107)
@@ -267,8 +267,8 @@ position = Vector2(601, 853)
 current_weapon = 2
 
 [node name="PatrolCat" parent="Level" instance=ExtResource("6_afa0i")]
-position = Vector2(380, 473)
-scale = Vector2(1.565, 1.565)
+position = Vector2(459, 482)
+scale = Vector2(1.405, 1.405)
 curve = SubResource("Curve2D_u5eg2")
 speed = 80.0
 

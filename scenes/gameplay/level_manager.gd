@@ -15,6 +15,8 @@ func _ready() -> void:
 	propagate_call("connect_player_caught", [self])
 
 func _on_player_caught() -> void:
+	if OS.is_debug_build():
+		get_tree().reload_current_scene()
 	restart_level.emit(cheese_container)
 
 func _on_player_entered_goal() -> void:
