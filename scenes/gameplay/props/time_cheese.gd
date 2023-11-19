@@ -3,7 +3,7 @@ extends Sprite2D
 
 @export var time_to_add: float = 1
 @export var pickup_color := Color.WHITE
-var pick_particles = preload("res://scenes/gameplay/cheese_pick_particle.tscn")
+var pick_particles = preload("res://scenes/gameplay/props/cheese_pick_particle.tscn")
 
 func _on_player_entered_enemy_weak_spot() -> void:
 	$Area2D.set_deferred("monitoring", false)

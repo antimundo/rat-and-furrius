@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://xebbo3bo5tth"]
 
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="1_yseug"]
-[ext_resource type="Script" path="res://scenes/gameplay/goal.gd" id="2_p3vv7"]
+[ext_resource type="Script" path="res://scenes/gameplay/props/goal.gd" id="2_p3vv7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
