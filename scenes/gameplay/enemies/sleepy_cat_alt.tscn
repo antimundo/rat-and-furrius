@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://yd2ne6knkb2l"]
+[gd_scene load_steps=16 format=3 uid="uid://i2ql682hksta"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_um2eo"]
 [ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fvgai"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/cat_sprite.gd" id="3_wmiwx"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="4_an1u7"]
+[ext_resource type="Texture2D" uid="uid://sg7ejjrowlyy" path="res://assets/sprites/Cat_SleepyR.png" id="4_p3ifa"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_5ncs2"]
+[ext_resource type="Texture2D" uid="uid://ceqjy7tvbysq3" path="res://assets/sprites/Cat_SleepyG.png" id="5_woyfp"]
+[ext_resource type="AudioStream" uid="uid://cvch4btmiy2h1" path="res://assets/audio/sword_slash_squash.mp3" id="6_4y4uh"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_8l6xg"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
@@ -57,13 +60,21 @@ height = 62.0
 [node name="SleepyCat" type="Path2D"]
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_um2eo")
+weakness = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+unique_name_in_owner = true
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("2_fvgai")
 script = ExtResource("3_wmiwx")
-node_to_follow = Object(PathFollow2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"progress":0.0,"h_offset":0.0,"v_offset":0.0,"rotates":true,"cubic_interp":true,"loop":true,"script":null)
+node_to_follow = NodePath("../PathFollow2D")
+sprite_red = ExtResource("4_p3ifa")
+sprite_green = ExtResource("5_woyfp")
+sprite_blue = ExtResource("2_fvgai")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_4y4uh")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
@@ -87,6 +98,7 @@ script = ExtResource("5_5ncs2")
 shape = SubResource("CircleShape2D_yd51y")
 
 [node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
+unique_name_in_owner = true
 script = ExtResource("6_8l6xg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]
