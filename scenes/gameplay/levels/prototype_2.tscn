@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbnmdx7bwqyda"]
+[gd_scene load_steps=7 format=3 uid="uid://cbnmdx7bwqyda"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_f14uh"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player.tscn" id="1_iotvb"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_vi2r5"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_q7e1g"]
+[ext_resource type="PackedScene" uid="uid://2gyekiekmnc4" path="res://scenes/gameplay/time_cheese.tscn" id="5_ioew0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -52,5 +53,20 @@ shape = SubResource("RectangleShape2D_asw6l")
 
 [node name="Goal" parent="." instance=ExtResource("3_q7e1g")]
 position = Vector2(1332, 338)
+
+[node name="TimeCheese" parent="." instance=ExtResource("5_ioew0")]
+position = Vector2(340, 337)
+
+[node name="TimeCheese2" parent="." instance=ExtResource("5_ioew0")]
+position = Vector2(663, 340)
+
+[node name="TimeCheese3" parent="." instance=ExtResource("5_ioew0")]
+position = Vector2(942, 345)
+
+[node name="TimeCheese4" parent="." instance=ExtResource("5_ioew0")]
+position = Vector2(658, 116)
+
+[node name="TimeCheese5" parent="." instance=ExtResource("5_ioew0")]
+position = Vector2(665, 592)
 
 [connection signal="player_entered_goal" from="Goal" to="." method="_on_player_entered_goal"]
