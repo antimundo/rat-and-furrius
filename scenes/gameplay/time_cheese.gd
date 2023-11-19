@@ -1,7 +1,7 @@
 extends Sprite2D
 # Used in levels to increase the time the player has left
 
-@export var time_to_add: float = 2.0
+@export var time_to_add: float = 1
 @export var pickup_color := Color.WHITE
 var pick_particles = preload("res://scenes/gameplay/cheese_pick_particle.tscn")
 
