@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://toj81v3j12rm"]
+
+[ext_resource type="Texture2D" uid="uid://bby73qdjw251b" path="res://assets/sprites/cheese_particle.svg" id="1_lfbfs"]
+[ext_resource type="Script" path="res://scenes/gameplay/weapons/destroy_self_timer.gd" id="2_loprl"]
+
+[sub_resource type="Curve" id="Curve_r2oll"]
+_data = [Vector2(0, 0.505263), 0.0, 2.8555, 0, 0, Vector2(0.455764, 0.284211), -1.1548, -1.1548, 0, 0, Vector2(1, 0), -0.0777487, 0.0, 0, 0]
+point_count = 3
+
+[node name="CheesePickParticle" type="CPUParticles2D"]
+emitting = false
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.8
+texture = ExtResource("1_lfbfs")
+direction = Vector2(1, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 300.0
+initial_velocity_max = 350.0
+angle_min = -15.0
+angle_max = 15.0
+scale_amount_curve = SubResource("Curve_r2oll")
+color = Color(1, 0.821333, 0.33, 1)
+script = ExtResource("2_loprl")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

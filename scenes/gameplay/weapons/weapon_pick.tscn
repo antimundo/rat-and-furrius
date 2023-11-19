@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/gameplay/weapons/weapon_pick.gd" id="1_2vjsw"]
 [ext_resource type="Texture2D" uid="uid://dlqmc4yj2qhr" path="res://assets/sprites/SwordR.png" id="2_d15tf"]
-[ext_resource type="AudioStream" uid="uid://dxhw3d42rvj6d" path="res://assets/audio/sound_sword_pickup.mp3" id="3_m6pvw"]
+[ext_resource type="AudioStream" uid="uid://dxhw3d42rvj6d" path="res://assets/audio/sword_pickup.mp3" id="3_5brkn"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4cndi"]
 radius = 40.0
@@ -128,6 +128,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_m6pvw")
+stream = ExtResource("3_5brkn")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
