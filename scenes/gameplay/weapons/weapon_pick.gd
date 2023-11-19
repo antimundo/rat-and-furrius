@@ -25,10 +25,6 @@ const WEAPON_PITCH = {
 
 @export var current_weapon := weapon_types.red:
 	set(value):
-		var particles = pick_particles.instantiate()
-		add_child(particles)
-		particles.color = Color(WEAPON_COLORS[current_weapon])
-		particles.emitting = true
 		$AudioStreamPlayer.pitch_scale = WEAPON_PITCH[current_weapon]
 		current_weapon = value
 		update_sprite(value)
@@ -38,6 +34,10 @@ var pick_particles = preload("res://scenes/gameplay/weapons/weapon_pick_particle
 func _on_area_2d_body_entered(body):
 	if body.is_in_group("player"):
 		var player_weapon = body.change_weapon(current_weapon)
+		var particles = pick_particles.instantiate()
+		add_child(particles)
+		particles.color = Color(WEAPON_COLORS[current_weapon])
+		particles.emitting = true
 		current_weapon = player_weapon
 		$AnimationPlayer.play("pickup")
 		$AnimationPlayer.seek(0)
