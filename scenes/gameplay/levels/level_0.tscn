@@ -83,7 +83,7 @@ position = Vector2(372, 387)
 current_weapon = 1
 
 [node name="WeaponPick2" parent="Level" instance=ExtResource("6_rty11")]
-position = Vector2(1057, 853)
+position = Vector2(1059, 854)
 current_weapon = 1
 
 [node name="WeaponPick3" parent="Level" instance=ExtResource("6_rty11")]
