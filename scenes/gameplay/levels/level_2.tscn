@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="2_u4e2s"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_8dpih"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="5_024qe"]
-[ext_resource type="PackedScene" uid="uid://yd2ne6knkb2l" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="7_2xc1f"]
+[ext_resource type="PackedScene" uid="uid://yd2ne6knkb2l" path="res://scenes/gameplay/enemies/sleepy_cat_alt.tscn" id="7_2xc1f"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="7_q2h5f"]
 [ext_resource type="PackedScene" uid="uid://chov81hcsj8vx" path="res://scenes/gameplay/props/button.tscn" id="8_1wi8e"]
 [ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="9_klyta"]

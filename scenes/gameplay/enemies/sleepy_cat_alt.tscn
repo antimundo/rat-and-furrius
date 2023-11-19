@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_um2eo"]
 [ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="2_fvgai"]
-[ext_resource type="Script" path="res://scenes/gameplay/enemies/follow.gd" id="3_wmiwx"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/cat_sprite.gd" id="3_wmiwx"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="4_an1u7"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_5ncs2"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_8l6xg"]
@@ -58,11 +58,12 @@ height = 62.0
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_um2eo")
 
-[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("2_fvgai")
 script = ExtResource("3_wmiwx")
-node_to_follow = NodePath("../PathFollow2D")
+node_to_follow = Object(PathFollow2D,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":0,"texture_repeat":0,"material":null,"use_parent_material":false,"position":Vector2(0, 0),"rotation":0.0,"scale":Vector2(1, 1),"skew":0.0,"progress":0.0,"h_offset":0.0,"v_offset":0.0,"rotates":true,"cubic_interp":true,"loop":true,"script":null)
+
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
@@ -94,4 +95,3 @@ shape = SubResource("CapsuleShape2D_jednb")
 [connection signal="body_entered" from="PathFollow2D/Vision/Area2D" to="PathFollow2D/Vision/Area2D" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]
 [connection signal="body_entered" from="PathFollow2D/WeakSpot" to="PathFollow2D/WeakSpot" method="_on_area_2d_body_entered"]
-[connection signal="player_entered_enemy_weak_spot" from="PathFollow2D/WeakSpot" to="." method="_on_player_entered_enemy_weak_spot"]
