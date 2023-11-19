@@ -13,9 +13,9 @@ size = Vector2(64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_u5eg2"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -125.24, -1.91696, 0, 0, 0, 0, -133.096, -207.829, 0, 0, 0, 0, 392.171, -205.694, 0, 0, 0, 0, 433.452, 4.27045, 0, 0, 0, 0, 19.4254, 0.475037, 0, 0, 0, 0, 11.3747, 0.475037, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 40.7032, 0.813018, -40.7032, -0.813018, -90.3226, -1.29034, 0, 29.885, 0, 0, -141.29, -50.3226, 0, 0, 0, 0, -140.645, -121.29, -58.2361, 0.44837, 58.2361, -0.44837, -78.0645, -181.935, -64.216, 0.732676, 64.216, -0.732676, 311.613, -183.226, 3.72718, -32.1077, -3.72718, 32.1077, 381.29, -40.6452, 23.0453, -1.26466, -23.0453, 1.26466, 312.258, -1.29034, 0, 0, 0, 0, 161.935, 1.29031, 0, 0, 0, 0, 92.9032, 0.645142, 0, 0, 0, 0, 0, 0)
 }
-point_count = 8
+point_count = 11
 
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_wct6m")
@@ -255,7 +255,7 @@ metadata/_edit_lock_ = true
 position = Vector2(1608, 645)
 
 [node name="WeaponPick" parent="Level" instance=ExtResource("5_iun8a")]
-position = Vector2(1015, 608)
+position = Vector2(1453, 927)
 current_weapon = 1
 
 [node name="WeaponPick2" parent="Level" instance=ExtResource("5_iun8a")]
@@ -263,12 +263,12 @@ position = Vector2(1059, 854)
 current_weapon = 1
 
 [node name="WeaponPick3" parent="Level" instance=ExtResource("5_iun8a")]
-position = Vector2(601, 853)
+position = Vector2(1020, 600)
 current_weapon = 2
 
 [node name="PatrolCat" parent="Level" instance=ExtResource("6_afa0i")]
 position = Vector2(459, 482)
-scale = Vector2(1.405, 1.405)
+scale = Vector2(1.55, 1.55)
 curve = SubResource("Curve2D_u5eg2")
 speed = 80.0
 

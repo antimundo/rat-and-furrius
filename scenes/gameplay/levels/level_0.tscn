@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcnimij4eaggj"]
+[gd_scene load_steps=11 format=3 uid="uid://bcnimij4eaggj"]
 
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="1_b3dob"]
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_fgpct"]
@@ -7,13 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_2eoy1"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="6_rty11"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="7_l6135"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_fxd1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_x4lav"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 146.524, 0.11821, 5, 0, 0, 0, 1.43372, 0.849457)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 2.836, 7.429, -2.83581, -10.0638, 168.888, 0.757187, -46.45, -11.5085, 46.45, 11.5085, 1.43372, 0.849457)
 }
 point_count = 3
 
@@ -76,10 +77,10 @@ shape = SubResource("RectangleShape2D_asw6l")
 metadata/_edit_lock_ = true
 
 [node name="Goal" parent="Level" instance=ExtResource("3_hc02h")]
-position = Vector2(1227, 416)
+position = Vector2(1454, 858)
 
 [node name="WeaponPick" parent="Level" instance=ExtResource("6_rty11")]
-position = Vector2(372, 387)
+position = Vector2(272, 847)
 current_weapon = 1
 
 [node name="WeaponPick2" parent="Level" instance=ExtResource("6_rty11")]
@@ -94,7 +95,7 @@ current_weapon = 2
 position = Vector2(675.69, 383.815)
 scale = Vector2(1.565, 1.565)
 curve = SubResource("Curve2D_x4lav")
-speed = 50.0
+speed = 30.0
 
 [node name="Cheese" type="Node2D" parent="."]
 
@@ -109,5 +110,8 @@ position = Vector2(918, 851)
 
 [node name="TimeCheese4" parent="Cheese" instance=ExtResource("5_2eoy1")]
 position = Vector2(431, 853)
+
+[node name="DestroyableBox" parent="." instance=ExtResource("8_fxd1v")]
+position = Vector2(374, 388)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
