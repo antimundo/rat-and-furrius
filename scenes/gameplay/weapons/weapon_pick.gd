@@ -17,18 +17,25 @@ const WEAPON_COLORS = {
 	weapon_types.blue: Color("3549a8")
 }
 
+const WEAPON_PITCH = {
+	weapon_types.red: 1.5,
+	weapon_types.green: 1.1,
+	weapon_types.blue: .8
+}
+
 @export var current_weapon := weapon_types.red:
 	set(value):
 		var particles = pick_particles.instantiate()
 		add_child(particles)
 		particles.color = Color(WEAPON_COLORS[current_weapon])
 		particles.emitting = true
+		$AudioStreamPlayer.pitch_scale = WEAPON_PITCH[current_weapon]
 		current_weapon = value
 		update_sprite(value)
 		$AnimationPlayer.play("pickup")
 		$AnimationPlayer.seek(0)
-		
-		
+		$AudioStreamPlayer.play()
+
 var pick_particles = preload("res://scenes/gameplay/weapons/weapon_pick_particle.tscn")
 
 func _on_area_2d_body_entered(body):
