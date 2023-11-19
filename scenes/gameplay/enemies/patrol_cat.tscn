@@ -1,17 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://b80k0bgl3c61d"]
+[gd_scene load_steps=9 format=3 uid="uid://b80k0bgl3c61d"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_3cni5"]
 [ext_resource type="Texture2D" uid="uid://chr1i2reijjlx" path="res://assets/sprites/Cat_patrol.png" id="2_2fkh4"]
-[ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_3iepx"]
 [ext_resource type="Script" path="res://scenes/gameplay/follow.gd" id="3_gvhe8"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="4_3rp4t"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="4_ajana"]
+[ext_resource type="Texture2D" uid="uid://cuh6mt1bdnkhw" path="res://assets/sprites/cone_vision.svg" id="4_wa5gq"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uk55c"]
-radius = 28.0
-height = 175.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jednb"]
 radius = 31.0
@@ -21,35 +17,32 @@ height = 62.0
 curve = SubResource("Curve2D_030nq")
 script = ExtResource("1_3cni5")
 
-[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
-scale = Vector2(0.185, 0.185)
-texture = ExtResource("2_2fkh4")
-script = ExtResource("3_gvhe8")
-node_to_follow = NodePath("../PathFollow2D")
-
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 [node name="Vision" type="Sprite2D" parent="PathFollow2D"]
 modulate = Color(1, 1, 1, 0.47451)
 position = Vector2(120, -7.62939e-06)
-scale = Vector2(2.79688, 0.87375)
-texture = ExtResource("3_3iepx")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("4_wa5gq")
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D/Vision"]
 position = Vector2(-42.905, 8.73178e-06)
-scale = Vector2(0.357542, 1.14449)
 script = ExtResource("4_ajana")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/Vision/Area2D"]
-position = Vector2(121, 1)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_uk55c")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/Vision/Area2D"]
+polygon = PackedVector2Array(684.572, -466.667, 809.572, -200, 817.905, 191.667, 709.572, 458.333, -798.762, 125, -798.762, -116.667)
 
 [node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
 script = ExtResource("4_3rp4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]
 shape = SubResource("CapsuleShape2D_jednb")
+
+[node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("2_2fkh4")
+script = ExtResource("3_gvhe8")
+node_to_follow = NodePath("../PathFollow2D")
 
 [connection signal="body_entered" from="PathFollow2D/Vision/Area2D" to="PathFollow2D/Vision/Area2D" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]

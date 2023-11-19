@@ -148,5 +148,3 @@ position = Vector2(961, 600)
 position = Vector2(657, 83)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
-[connection signal="player_caught" from="Level/PatrolCat" to="." method="_on_player_caught"]
-[connection signal="player_caught" from="Level/PatrolCat2" to="." method="_on_player_caught"]

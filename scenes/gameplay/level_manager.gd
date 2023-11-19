@@ -11,6 +11,9 @@ signal restart_level(cheeses: Node2D)
 
 @onready var cheese_container: Node2D = $Cheese
 
+func _ready() -> void:
+	propagate_call("connect_player_caught", [self])
+
 func _on_player_caught() -> void:
 	restart_level.emit(cheese_container)
 

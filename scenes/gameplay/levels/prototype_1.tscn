@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_milvi"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/goal.tscn" id="3_ue43w"]
 [ext_resource type="PackedScene" uid="uid://bd1gi8jk1bb2o" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="5_kbuvp"]
-[ext_resource type="PackedScene" uid="uid://2gyekiekmnc4" path="res://scenes/gameplay/time_cheese.tscn" id="6_lmhf1"]
+[ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/time_cheese.tscn" id="6_lmhf1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -86,5 +86,3 @@ position = Vector2(132, 604)
 position = Vector2(1120, 601)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
-[connection signal="player_caught" from="Level/SleepyCat" to="." method="_on_player_caught"]
-[connection signal="player_caught" from="Level/SleepyCat2" to="." method="_on_player_caught"]
