@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="2_vi2r5"]
 [ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="3_q7e1g"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_ioew0"]
-[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_6i2mr"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_6i2mr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
