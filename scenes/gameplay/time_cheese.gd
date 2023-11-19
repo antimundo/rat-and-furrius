@@ -17,4 +17,6 @@ func play_particle():
 	particles.position = position
 	particles.color = pickup_color
 	particles.emitting = true
+
+func _on_audio_stream_player_finished():
 	queue_free()
