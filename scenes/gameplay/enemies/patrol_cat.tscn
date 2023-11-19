@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b80k0bgl3c61d"]
+[gd_scene load_steps=11 format=3 uid="uid://b80k0bgl3c61d"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_3cni5"]
 [ext_resource type="Texture2D" uid="uid://chr1i2reijjlx" path="res://assets/sprites/Cat_patrol.png" id="2_2fkh4"]
-[ext_resource type="Script" path="res://scenes/gameplay/enemies/follow.gd" id="3_gvhe8"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="4_3rp4t"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="4_ajana"]
 [ext_resource type="Texture2D" uid="uid://cuh6mt1bdnkhw" path="res://assets/sprites/cone_vision.svg" id="4_wa5gq"]
+[ext_resource type="Script" path="res://scenes/gameplay/enemies/cat_sprite.gd" id="6_jj2yl"]
+[ext_resource type="Texture2D" uid="uid://b3fr2xvf0funj" path="res://assets/sprites/Cat_AltWIP.png" id="7_kp4pc"]
+[ext_resource type="Texture2D" uid="uid://knu73m62nu2o" path="res://assets/sprites/Cat_SleepyWIP.png" id="8_2nf2e"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
 
@@ -33,16 +35,21 @@ script = ExtResource("4_ajana")
 polygon = PackedVector2Array(684.572, -466.667, 809.572, -200, 817.905, 191.667, 709.572, 458.333, -798.762, 125, -798.762, -116.667)
 
 [node name="WeakSpot" type="Area2D" parent="PathFollow2D"]
+unique_name_in_owner = true
 script = ExtResource("4_3rp4t")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PathFollow2D/WeakSpot"]
 shape = SubResource("CapsuleShape2D_jednb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
+unique_name_in_owner = true
 scale = Vector2(0.185, 0.185)
 texture = ExtResource("2_2fkh4")
-script = ExtResource("3_gvhe8")
+script = ExtResource("6_jj2yl")
 node_to_follow = NodePath("../PathFollow2D")
+sprite_red = ExtResource("2_2fkh4")
+sprite_green = ExtResource("7_kp4pc")
+sprite_blue = ExtResource("8_2nf2e")
 
 [connection signal="body_entered" from="PathFollow2D/Vision/Area2D" to="PathFollow2D/Vision/Area2D" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]
