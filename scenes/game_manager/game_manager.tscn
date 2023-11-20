@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsuf565vxlltg"]
+[gd_scene load_steps=11 format=3 uid="uid://dsuf565vxlltg"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/game_manager.gd" id="1_woiw8"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="2_43sdy"]
 [ext_resource type="Texture2D" uid="uid://cp5ff11ecnu4r" path="res://assets/sprites/Clock.png" id="2_eqlv3"]
 [ext_resource type="Script" path="res://scenes/game_manager/end_game_timer.gd" id="2_ln6gs"]
+[ext_resource type="PackedScene" uid="uid://dv3kfiw88cwed" path="res://scenes/game_manager/curtain.tscn" id="2_wg7jd"]
 [ext_resource type="AudioStream" uid="uid://dtky6y0mv0gyv" path="res://assets/music/music_gameplay.ogg" id="3_7bieq"]
+[ext_resource type="AudioStream" uid="uid://cctuobp8o40aa" path="res://assets/audio/defeat_contact.ogg" id="7_nbisg"]
 
 [sub_resource type="Animation" id="Animation_iesm3"]
 length = 0.001
@@ -77,6 +79,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Curtain" parent="Control" instance=ExtResource("2_wg7jd")]
+
 [node name="TextureRect" type="TextureRect" parent="Control"]
 self_modulate = Color(0.623529, 0.643137, 1, 1)
 layout_mode = 0
@@ -145,5 +149,8 @@ script = ExtResource("2_ln6gs")
 stream = ExtResource("3_7bieq")
 volume_db = -4.0
 autoplay = true
+
+[node name="SFXNextLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nbisg")
 
 [connection signal="timeout" from="EndGameTimer" to="." method="_on_end_game_timer_timeout"]

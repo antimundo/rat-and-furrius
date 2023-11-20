@@ -18,10 +18,12 @@ func load_next_level() -> void:
 		load_game_finished()
 
 func load_menu():
+	$Control/Curtain.play_animation()
 	load_end_scene(load("res://scenes/main_menu/start_menu.tscn"))
 	queue_free()
 
 func load_game_finished():
+	$Control/Curtain.play_animation()
 	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
 	queue_free()
 
@@ -32,6 +34,7 @@ func unload_current_level() -> void:
 	current_level.queue_free()
 
 func reload_current_level(cheeses: Node2D) -> void:
+	$SFXNextLevel.play()
 	var last_level = current_level
 	cheeses.call_deferred("reparent", self)
 	load_level(levels[current_level_index])
@@ -39,6 +42,7 @@ func reload_current_level(cheeses: Node2D) -> void:
 	last_level.queue_free()
 
 func load_level(scene: PackedScene) -> void:
+	$Control/Curtain.play_animation()
 	current_level = scene.instantiate()
 	if current_level.has_signal("level_finished"):
 		current_level.level_finished.connect(load_next_level)
