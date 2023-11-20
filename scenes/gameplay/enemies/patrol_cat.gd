@@ -3,6 +3,7 @@ class_name Cat
 ## Used in enemy cats to follow a path and react to signals
 
 signal player_caught
+signal cat_died
 
 enum Weakness { all, red, green, blue }
 enum CatType { sleepy, patrol }
@@ -36,9 +37,14 @@ func _ready() -> void:
 		await get_tree().create_timer(delay_first_pulse).timeout
 		animate_pulse()
 
-func connect_player_caught(level_manager):
+func connect_player_caught(level_manager) -> void:
 	if level_manager.has_method("_on_player_caught"):
 		player_caught.connect(level_manager._on_player_caught)
+
+func connect_cat_counter(level_manager) -> void:
+	if level_manager.has_method("_on_cat_died"):
+		level_manager.cats_on_level += 1
+		cat_died.connect(level_manager._on_cat_died)
 
 func _physics_process(delta: float) -> void:
 	if enabled:
@@ -52,6 +58,7 @@ func _on_player_entered_enemy_weak_spot(player) -> void:
 	$PathFollow2D/Vision/Area2D.monitoring = false
 	%WeakSpot.set_deferred("monitoring", false)
 	TEMPORAL_play_killed_sound()
+	cat_died.emit()
 	$effects.position = $PathFollow2D/Vision.position
 	$effects.look_at(get_global_mouse_position())
 	$effects/AnimationPlayer.play("attack")

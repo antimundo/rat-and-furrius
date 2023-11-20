@@ -23,9 +23,6 @@ script = ExtResource("1_fgpct")
 
 [node name="Level" type="Node2D" parent="."]
 
-[node name="Player" parent="Level" instance=ExtResource("1_b3dob")]
-position = Vector2(172, 378)
-
 [node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(642, 170)
 scale = Vector2(20.2969, 4.53125)
@@ -97,6 +94,12 @@ scale = Vector2(1.565, 1.565)
 curve = SubResource("Curve2D_x4lav")
 speed = 30.0
 
+[node name="DestroyableBox" parent="Level" instance=ExtResource("8_fxd1v")]
+position = Vector2(374, 388)
+
+[node name="Player" parent="Level" instance=ExtResource("1_b3dob")]
+position = Vector2(172, 378)
+
 [node name="Cheese" type="Node2D" parent="."]
 
 [node name="TimeCheese" parent="Cheese" instance=ExtResource("5_2eoy1")]
@@ -110,8 +113,5 @@ position = Vector2(918, 851)
 
 [node name="TimeCheese4" parent="Cheese" instance=ExtResource("5_2eoy1")]
 position = Vector2(431, 853)
-
-[node name="DestroyableBox" parent="." instance=ExtResource("8_fxd1v")]
-position = Vector2(374, 388)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
