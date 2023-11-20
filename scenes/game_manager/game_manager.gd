@@ -15,13 +15,19 @@ func load_next_level() -> void:
 		load_level(levels[current_level_index])
 	else:
 		unload_current_level()
-		load_menu()
+		load_game_finished()
 
 func load_menu():
-	var menu = load("res://scenes/main_menu/start_menu.tscn").instantiate()
-	get_tree().root.call_deferred("add_child", menu)
+	load_end_scene(load("res://scenes/main_menu/start_menu.tscn"))
 	queue_free()
 
+func load_game_finished():
+	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
+	queue_free()
+
+func load_end_scene(scene: PackedScene) -> void:
+	get_tree().root.call_deferred("add_child", scene.instantiate())
+	
 func unload_current_level() -> void:
 	current_level.queue_free()
 
@@ -39,8 +45,6 @@ func load_level(scene: PackedScene) -> void:
 	if current_level.has_signal("restart_level"):
 		current_level.restart_level.connect(reload_current_level)
 	call_deferred("add_child", current_level)
-
-
 
 func _on_end_game_timer_timeout() -> void:
 	load_menu()

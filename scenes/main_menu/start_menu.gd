@@ -2,7 +2,11 @@ extends Node2D
 
 @export var scenes: Array[PackedScene]
 @export var boxes_to_destroy_for_game_start := 3
+@export_multiline var text: String = "Destruye todo para empezar"
 @onready var game:PackedScene = load("res://scenes/game_manager/game_manager.tscn")
+
+func _ready() -> void:
+	$Label.text = text
 
 func start_game() -> void:
 	var game_manager = game.instantiate()
