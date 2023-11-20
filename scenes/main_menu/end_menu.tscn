@@ -6,5 +6,5 @@
 
 [node name="start_menu" parent="." instance=ExtResource("1_mwy2k")]
 game_finished = true
-text = "¡Gracias por jugar! ❤️
+text = "¡Gracias por jugar! ♥
 Destruye las cajas para volver a empezar"
