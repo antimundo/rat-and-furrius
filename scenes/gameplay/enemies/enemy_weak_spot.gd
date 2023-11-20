@@ -3,6 +3,7 @@ extends Area2D
 ## Also used in cheese to signal the player got the cheese
 
 signal player_entered_enemy_weak_spot(player)
+signal player_used_wrong_color_to_attack
 
 var weakness: Cat.Weakness
 
@@ -23,3 +24,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		if body.has_method("get_current_weapon"):
 			if is_weak_against(body.get_current_weapon()):
 				player_entered_enemy_weak_spot.emit(body)
+			else:
+				player_used_wrong_color_to_attack.emit()

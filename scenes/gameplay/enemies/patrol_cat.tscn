@@ -61,3 +61,4 @@ shape = SubResource("CapsuleShape2D_jednb")
 [connection signal="player_entered_enemy_vision" from="PathFollow2D/Vision/Area2D" to="." method="_on_player_entered_enemy_vision"]
 [connection signal="body_entered" from="PathFollow2D/WeakSpot" to="PathFollow2D/WeakSpot" method="_on_area_2d_body_entered"]
 [connection signal="player_entered_enemy_weak_spot" from="PathFollow2D/WeakSpot" to="." method="_on_player_entered_enemy_weak_spot"]
+[connection signal="player_used_wrong_color_to_attack" from="PathFollow2D/WeakSpot" to="." method="_on_player_entered_enemy_vision"]
