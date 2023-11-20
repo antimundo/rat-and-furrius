@@ -38,7 +38,6 @@ stream = ExtResource("5_wyje3")
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 [node name="Vision" type="Sprite2D" parent="PathFollow2D"]
-modulate = Color(1, 1, 1, 0.47451)
 position = Vector2(120, -7.62939e-06)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("4_wa5gq")
