@@ -14,7 +14,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
 
-[node name="level_0" type="Node2D"]
+[node name="level_1" type="Node2D"]
 script = ExtResource("1_jqowx")
 
 [node name="Level" type="Node2D" parent="."]
@@ -291,9 +291,11 @@ position = Vector2(1199, 617)
 
 [node name="TimeCheese4" parent="Cheese" instance=ExtResource("7_q2h5f")]
 position = Vector2(345, 659)
+time_to_add = 2.0
 
 [node name="TimeCheese5" parent="Cheese" instance=ExtResource("7_q2h5f")]
 position = Vector2(639, 650)
+time_to_add = 2.0
 
 [node name="TimeCheese6" parent="Cheese" instance=ExtResource("7_q2h5f")]
 position = Vector2(504, 84)
