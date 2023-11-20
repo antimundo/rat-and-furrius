@@ -152,7 +152,7 @@ current_weapon = 2
 position = Vector2(28.5629, -20.4998)
 
 [node name="TimeCheese5" parent="Cheese" instance=ExtResource("7_yn1nc")]
-position = Vector2(680.437, 428.5)
+position = Vector2(680.437, 507.5)
 time_to_add = 2.0
 
 [node name="TimeCheese7" parent="Cheese" instance=ExtResource("7_yn1nc")]

@@ -136,9 +136,9 @@ shape = SubResource("RectangleShape2D_asw6l")
 metadata/_edit_lock_ = true
 
 [node name="Wall15" type="Sprite2D" parent="Level"]
-position = Vector2(1000.22, 381.22)
+position = Vector2(1000.22, 368.506)
 rotation = -1.57079
-scale = Vector2(5.48317, 0.938668)
+scale = Vector2(5.88047, 0.938668)
 texture = ExtResource("3_hp3rq")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall15"]
@@ -212,11 +212,15 @@ position = Vector2(94.4371, 523.5)
 time_to_add = 3.0
 
 [node name="TimeCheese7" parent="Cheese" instance=ExtResource("5_rvxov")]
-position = Vector2(883.659, 471.72)
+position = Vector2(762.437, 564.5)
+time_to_add = 2.0
+
+[node name="TimeCheese9" parent="Cheese" instance=ExtResource("5_rvxov")]
+position = Vector2(337.437, 612.5)
 time_to_add = 2.0
 
 [node name="TimeCheese8" parent="Cheese" instance=ExtResource("5_rvxov")]
-position = Vector2(1062.44, 318.5)
+position = Vector2(1064.44, 324.5)
 time_to_add = 2.0
 
 [node name="PatrolCat2" parent="." instance=ExtResource("6_0erxf")]
@@ -255,57 +259,57 @@ scale = Vector2(1.4, 1.4)
 size_max = 2.3
 
 [node name="Spike4" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(1081.22, 527.22)
+position = Vector2(1075.55, 527.22)
 rotation = -10.9956
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.598758)
 
 [node name="Spike5" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(1087.22, 375.22)
+position = Vector2(1083, 365)
 rotation = -10.9956
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.604029)
 
 [node name="Spike9" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(825.221, 448.22)
+position = Vector2(820.181, 448.22)
 rotation = -10.9956
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.60403)
 
 [node name="Spike10" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(913.221, 235.22)
+position = Vector2(920, 209)
 rotation = -7.85398
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.588215)
 
 [node name="Spike13" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(828.221, 315.22)
+position = Vector2(821, 289)
 rotation = -10.9956
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.588215)
 
 [node name="Spike6" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(1088.22, 232.22)
+position = Vector2(1081, 211)
 rotation = -10.9956
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.598758)
 
 [node name="Spike7" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(1182.22, 313.22)
+position = Vector2(1185, 292)
 rotation = -7.85398
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.625116)
 
 [node name="Spike11" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(919.221, 530.22)
+position = Vector2(921.111, 530.22)
 rotation = -7.85398
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.630388)
 
 [node name="Spike12" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(913.221, 375.22)
+position = Vector2(918, 365)
 rotation = -7.85398
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.60403)
 
 [node name="Spike8" parent="." instance=ExtResource("11_o4lob")]
-position = Vector2(1182.22, 454.22)
+position = Vector2(1186.63, 454.22)
 rotation = -7.85398
-scale = Vector2(0.521434, 0.646203)
+scale = Vector2(0.521434, 0.609301)
 
 [node name="Button" parent="." instance=ExtResource("8_5ylwt")]
-position = Vector2(999, 140)
+position = Vector2(999, 117)
 scale = Vector2(0.4, 0.4)
 
 [node name="PatrolCat" parent="." instance=ExtResource("6_0erxf")]

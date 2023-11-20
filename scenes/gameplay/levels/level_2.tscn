@@ -295,6 +295,14 @@ position = Vector2(345, 659)
 [node name="TimeCheese5" parent="Cheese" instance=ExtResource("7_q2h5f")]
 position = Vector2(639, 650)
 
+[node name="TimeCheese6" parent="Cheese" instance=ExtResource("7_q2h5f")]
+position = Vector2(504, 84)
+time_to_add = 2.0
+
+[node name="TimeCheese7" parent="Cheese" instance=ExtResource("7_q2h5f")]
+position = Vector2(799, 84)
+time_to_add = 2.0
+
 [node name="Door" parent="." instance=ExtResource("10_yibxf")]
 position = Vector2(825, 305)
 rotation = 1.5708
