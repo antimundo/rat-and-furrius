@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_2eoy1"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="6_rty11"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="7_l6135"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_fxd1v"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_fxd1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -22,9 +22,6 @@ point_count = 3
 script = ExtResource("1_fgpct")
 
 [node name="Level" type="Node2D" parent="."]
-
-[node name="Player" parent="Level" instance=ExtResource("1_b3dob")]
-position = Vector2(172, 378)
 
 [node name="Wall" type="Sprite2D" parent="Level"]
 position = Vector2(642, 170)
@@ -97,6 +94,12 @@ scale = Vector2(1.565, 1.565)
 curve = SubResource("Curve2D_x4lav")
 speed = 30.0
 
+[node name="DestroyableBox" parent="Level" instance=ExtResource("8_fxd1v")]
+position = Vector2(374, 388)
+
+[node name="Player" parent="Level" instance=ExtResource("1_b3dob")]
+position = Vector2(172, 378)
+
 [node name="Cheese" type="Node2D" parent="."]
 
 [node name="TimeCheese" parent="Cheese" instance=ExtResource("5_2eoy1")]
@@ -110,8 +113,5 @@ position = Vector2(918, 851)
 
 [node name="TimeCheese4" parent="Cheese" instance=ExtResource("5_2eoy1")]
 position = Vector2(431, 853)
-
-[node name="DestroyableBox" parent="." instance=ExtResource("8_fxd1v")]
-position = Vector2(374, 388)
 
 [connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
