@@ -21,6 +21,7 @@ func get_input():
 			$Weapon/Sprite.scale.x = 1 - (position.distance_to(last_position) / 200)
 		elif distance > UNSNAP_DISTANCE:
 			is_snapped = false
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	else:
 		$Area.visible = true
 		$Sprite2D.scale.x = 0.5
@@ -30,6 +31,7 @@ func get_input():
 			if not is_snapped:
 				$MouseSnapSound.play()
 			is_snapped = true
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 			
 	last_position = position
 
