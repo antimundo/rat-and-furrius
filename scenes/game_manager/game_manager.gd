@@ -18,8 +18,8 @@ func load_next_level() -> void:
 		load_menu()
 
 func load_menu():
-	var menu = load("res://scenes/main_menu/main_menu.tscn").instantiate()
-	get_tree().root.add_child(menu)
+	var menu = load("res://scenes/main_menu/start_menu.tscn").instantiate()
+	get_tree().root.call_deferred("add_child", menu)
 	queue_free()
 
 func unload_current_level() -> void:

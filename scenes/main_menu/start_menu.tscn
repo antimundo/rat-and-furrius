@@ -1,0 +1,103 @@
+[gd_scene load_steps=10 format=3 uid="uid://bjipjl8dxe7mo"]
+
+[ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_cqxbd"]
+[ext_resource type="PackedScene" uid="uid://bcnimij4eaggj" path="res://scenes/gameplay/levels/level_0.tscn" id="2_46ft8"]
+[ext_resource type="Texture2D" uid="uid://c73opf6qhieh3" path="res://assets/sprites/Portada.png" id="2_h4cya"]
+[ext_resource type="Texture2D" uid="uid://bal8b8120hp3c" path="res://assets/sprites/rat-and-furious-logo.svg" id="3_pvrrl"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_m52jg"]
+[ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="7_udtg0"]
+
+[sub_resource type="Animation" id="Animation_7bw7j"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ppxtf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4evw7"]
+_data = {
+"RESET": SubResource("Animation_ppxtf"),
+"idle": SubResource("Animation_7bw7j")
+}
+
+[node name="start_menu" type="Node2D"]
+script = ExtResource("1_cqxbd")
+scenes = Array[PackedScene]([ExtResource("2_46ft8")])
+
+[node name="Level" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Level"]
+position = Vector2(640, 360)
+texture = ExtResource("2_h4cya")
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Sprite2D" parent="Level"]
+position = Vector2(627, 159)
+texture = ExtResource("3_pvrrl")
+
+[node name="Player" parent="Level" instance=ExtResource("7_udtg0")]
+position = Vector2(209, 546)
+
+[node name="DestroyableBox" parent="Level" instance=ExtResource("6_m52jg")]
+position = Vector2(411, 556)
+
+[node name="DestroyableBox2" parent="Level" instance=ExtResource("6_m52jg")]
+position = Vector2(632, 556)
+
+[node name="DestroyableBox3" parent="Level" instance=ExtResource("6_m52jg")]
+position = Vector2(842, 556)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 280.0
+offset_top = 365.0
+offset_right = 944.0
+offset_bottom = 435.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(332, 35)
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 48
+text = "Destruye todo para empezar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_4evw7")
+}
+
+[connection signal="box_destroyed" from="Level/DestroyableBox" to="." method="count_destroyed_box"]
+[connection signal="box_destroyed" from="Level/DestroyableBox2" to="." method="count_destroyed_box"]
+[connection signal="box_destroyed" from="Level/DestroyableBox3" to="." method="count_destroyed_box"]
