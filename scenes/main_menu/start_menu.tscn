@@ -1,11 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjipjl8dxe7mo"]
+[gd_scene load_steps=19 format=3 uid="uid://bjipjl8dxe7mo"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_cqxbd"]
 [ext_resource type="PackedScene" uid="uid://bcnimij4eaggj" path="res://scenes/gameplay/levels/level_0.tscn" id="2_46ft8"]
 [ext_resource type="Texture2D" uid="uid://c73opf6qhieh3" path="res://assets/sprites/Portada.png" id="2_h4cya"]
 [ext_resource type="Texture2D" uid="uid://o2myjyecfkba" path="res://assets/sprites/tilemap/square.svg" id="3_abpki"]
+[ext_resource type="PackedScene" uid="uid://d1rlaax0lm88e" path="res://scenes/gameplay/levels/level_1.tscn" id="3_itduj"]
 [ext_resource type="Texture2D" uid="uid://bal8b8120hp3c" path="res://assets/sprites/rat-and-furious-logo.svg" id="3_pvrrl"]
+[ext_resource type="PackedScene" uid="uid://c0yp7mrfev6rc" path="res://scenes/gameplay/levels/level_2.tscn" id="4_nixmm"]
+[ext_resource type="PackedScene" uid="uid://dcfso3c8lfrxx" path="res://scenes/gameplay/levels/level_3.tscn" id="5_sifat"]
+[ext_resource type="PackedScene" uid="uid://dhu7vaos6i02j" path="res://scenes/gameplay/levels/level_5.tscn" id="6_ghu1k"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_m52jg"]
+[ext_resource type="PackedScene" uid="uid://bgxweq7nxwk38" path="res://scenes/gameplay/levels/level_4.tscn" id="6_rs1ox"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="7_udtg0"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_v5ufc"]
@@ -151,7 +156,7 @@ _data = {
 
 [node name="start_menu" type="Node2D"]
 script = ExtResource("1_cqxbd")
-scenes = Array[PackedScene]([ExtResource("2_46ft8")])
+scenes = Array[PackedScene]([ExtResource("2_46ft8"), ExtResource("3_itduj"), ExtResource("5_sifat"), ExtResource("6_rs1ox"), ExtResource("6_ghu1k"), ExtResource("4_nixmm")])
 
 [node name="Level" type="Node2D" parent="."]
 

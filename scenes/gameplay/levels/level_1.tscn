@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="5_iun8a"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="6_afa0i"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="7_wb8dv"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/spike.tscn" id="8_5m1ex"]
+[ext_resource type="PackedScene" uid="uid://wfkhsf2olb1h" path="res://scenes/gameplay/props/spike.tscn" id="8_5m1ex"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_v74s4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]

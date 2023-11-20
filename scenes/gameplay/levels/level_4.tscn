@@ -1,14 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgxweq7nxwk38"]
+[gd_scene load_steps=11 format=3 uid="uid://bgxweq7nxwk38"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_p3jms"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="2_4anwv"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_cxyew"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="4_cywqf"]
-[ext_resource type="PackedScene" uid="uid://chov81hcsj8vx" path="res://scenes/gameplay/props/button.tscn" id="5_hbo5v"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="7_yn1nc"]
-[ext_resource type="PackedScene" uid="uid://civfs86jhk8a2" path="res://scenes/gameplay/props/door.tscn" id="8_06aoe"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="9_208kq"]
-[ext_resource type="PackedScene" uid="uid://bd1gi8jk1bb2o" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="9_vnxel"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="10_pyajp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
@@ -16,15 +13,15 @@ size = Vector2(64, 64)
 
 [sub_resource type="Curve2D" id="Curve2D_w37oo"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 5.24408, -2.78522, -5.24408, 2.78522, 24.7263, 3.50159, -33.4345, 26.727, 33.4345, -26.727, 322, -5, 30.3068, 22.2725, -30.3068, -22.2725, 320, -342, 51.6721, -14.3518, -51.6721, 14.3518, 17, -346, -25.3992, -22.6025, 25.3992, 22.6025, 0, 0)
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -33.4345, 26.727, 33.4345, -26.727, 322, -5, 30.3068, 22.2725, -30.3068, -22.2725, 320, -342, 51.6721, -14.3518, -51.6721, 14.3518, 17, -346, -25.3992, -22.6025, -51.6721, 14.3518, 0, 0)
 }
-point_count = 6
+point_count = 5
 
 [sub_resource type="Curve2D" id="Curve2D_k48ar"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -55.2454, -35.9101, 55.2454, 35.9101, 246.437, 9, 41.1229, -18.7089, -41.1229, 18.7089, 233.437, 343, 114.439, -0.186208, -114.439, 0.186208, 29.4371, 353, -95.7413, 2.6963, 95.7413, -2.6963, -2.56287, -4, 0, 0, 0, 0, 0, 0)
+"points": PackedVector2Array(-126.572, 3.27846, 126.572, -3.27846, 0, 0, -35.1108, -12.5828, 35.1108, 12.5828, 246.437, 9, 24.1715, -21.8873, -24.1715, 21.8873, 260.437, 345, 71.6759, -0.186208, -71.6759, 0.186208, -12.563, 350, -61.3179, 5.17603, 61.3179, -5.17603, 0, 0)
 }
-point_count = 6
+point_count = 5
 
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_p3jms")
@@ -67,18 +64,6 @@ texture = ExtResource("3_cxyew")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall2/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall8" type="Sprite2D" parent="Level"]
-position = Vector2(1868.56, 322.5)
-scale = Vector2(3.16358, 3.29834)
-texture = ExtResource("3_cxyew")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall8"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall8/StaticBody2D"]
 shape = SubResource("RectangleShape2D_asw6l")
 metadata/_edit_lock_ = true
 
@@ -159,98 +144,24 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_asw6l")
 metadata/_edit_lock_ = true
 
-[node name="Wall17" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1905.56, 639.5)
-rotation = -1.57079
-scale = Vector2(0.522918, 1.30313)
-texture = ExtResource("3_cxyew")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall17"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall17/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall18" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1695.56, 574.5)
-rotation = -1.57079
-scale = Vector2(0.522918, 1.07137)
-texture = ExtResource("3_cxyew")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall18"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall18/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall19" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1628.56, 674.5)
-rotation = -1.57079
-scale = Vector2(0.522918, 1.18725)
-texture = ExtResource("3_cxyew")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall19"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall19/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
 [node name="WeaponPick2" parent="Level" instance=ExtResource("4_cywqf")]
 position = Vector2(971, 572)
 current_weapon = 2
-
-[node name="Button" parent="Level" instance=ExtResource("5_hbo5v")]
-position = Vector2(1814.56, 85.5002)
-scale = Vector2(0.4, 0.4)
 
 [node name="Cheese" type="Node2D" parent="."]
 position = Vector2(28.5629, -20.4998)
 
 [node name="TimeCheese5" parent="Cheese" instance=ExtResource("7_yn1nc")]
 position = Vector2(680.437, 428.5)
+time_to_add = 2.0
 
 [node name="TimeCheese7" parent="Cheese" instance=ExtResource("7_yn1nc")]
 position = Vector2(271.437, 327.5)
+time_to_add = 2.0
 
 [node name="TimeCheese6" parent="Cheese" instance=ExtResource("7_yn1nc")]
 position = Vector2(1065.44, 339.5)
-
-[node name="Door" parent="." instance=ExtResource("8_06aoe")]
-position = Vector2(1388.56, 949.5)
-rotation = 1.5708
-scale = Vector2(0.35, 0.35)
-open_for_seconds = 0.8
-
-[node name="SleepyCat" parent="." instance=ExtResource("9_vnxel")]
-position = Vector2(792.303, 979.5)
-scale = Vector2(1.4, 1.4)
-weakness = 2
-size_max = 2.3
-
-[node name="SleepyCat4" parent="." instance=ExtResource("9_vnxel")]
-position = Vector2(965.708, 979.5)
-scale = Vector2(1.4, 1.4)
-weakness = 2
-size_max = 2.3
-delay_first_pulse = 0.2
-
-[node name="SleepyCat3" parent="." instance=ExtResource("9_vnxel")]
-position = Vector2(1122, 979.5)
-scale = Vector2(1.4, 1.4)
-weakness = 2
-size_max = 2.3
-
-[node name="SleepyCat2" parent="." instance=ExtResource("9_vnxel")]
-position = Vector2(318.928, 979.5)
-scale = Vector2(1.4, 1.4)
-size_max = 2.3
-delay_first_pulse = 0.2
+time_to_add = 2.0
 
 [node name="PatrolCat" parent="." instance=ExtResource("9_208kq")]
 position = Vector2(375, 569)
@@ -302,6 +213,3 @@ position = Vector2(839, 168)
 
 [node name="DestroyableBox15" parent="." instance=ExtResource("10_pyajp")]
 position = Vector2(974, 167)
-
-[connection signal="button_pressed" from="Level/Button" to="Door" method="open_door"]
-[connection signal="door_closed" from="Door" to="Level/Button" method="reset_button"]

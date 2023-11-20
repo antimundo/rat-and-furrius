@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://chov81hcsj8vx" path="res://scenes/gameplay/props/button.tscn" id="8_1wi8e"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="9_klyta"]
 [ext_resource type="PackedScene" uid="uid://bd1gi8jk1bb2o" path="res://scenes/gameplay/enemies/sleepy_cat.tscn" id="10_1p4ae"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/spike.tscn" id="10_tinke"]
+[ext_resource type="PackedScene" uid="uid://wfkhsf2olb1h" path="res://scenes/gameplay/props/spike.tscn" id="10_tinke"]
 [ext_resource type="PackedScene" uid="uid://civfs86jhk8a2" path="res://scenes/gameplay/props/door.tscn" id="10_yibxf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
@@ -264,7 +264,7 @@ weakness = 2
 size_max = 2.3
 delay_first_pulse = 0.6
 time_off = 0.5
-time_animation = 0.5
+time_animation = 0.8
 time_on = 0.5
 
 [node name="SleepyCat3" parent="Level" instance=ExtResource("10_1p4ae")]

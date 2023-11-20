@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="7_lajj3"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="8_dwguy"]
 [ext_resource type="PackedScene" uid="uid://civfs86jhk8a2" path="res://scenes/gameplay/props/door.tscn" id="9_36tvw"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/spike.tscn" id="10_3vtlj"]
+[ext_resource type="PackedScene" uid="uid://wfkhsf2olb1h" path="res://scenes/gameplay/props/spike.tscn" id="10_3vtlj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -166,6 +166,9 @@ position = Vector2(1100, 461)
 [node name="TimeCheese5" parent="Cheese" instance=ExtResource("8_dwguy")]
 position = Vector2(150, 280)
 
+[node name="TimeCheese6" parent="Cheese" instance=ExtResource("8_dwguy")]
+position = Vector2(677, 449)
+
 [node name="Door" parent="." instance=ExtResource("9_36tvw")]
 position = Vector2(443, 278)
 rotation = 1.5708
@@ -178,7 +181,8 @@ scale = Vector2(1.4, 1.4)
 weakness = 2
 size_max = 2.3
 time_off = 0.5
-time_on = 0.5
+time_animation = 0.8
+time_on = 0.3
 
 [node name="SleepyCat4" parent="." instance=ExtResource("5_06p2h")]
 position = Vector2(937.145, 592.515)
@@ -186,6 +190,9 @@ scale = Vector2(1.4, 1.4)
 weakness = 2
 size_max = 2.3
 delay_first_pulse = 0.2
+time_off = 0.5
+time_animation = 0.8
+time_on = 0.3
 
 [node name="Spike" parent="." instance=ExtResource("10_3vtlj")]
 position = Vector2(679.505, 526)
@@ -208,7 +215,8 @@ scale = Vector2(1.4, 1.4)
 weakness = 2
 size_max = 2.3
 time_off = 0.5
-time_on = 0.5
+time_animation = 0.8
+time_on = 0.3
 
 [node name="SleepyCat2" parent="." instance=ExtResource("5_06p2h")]
 position = Vector2(290.365, 381.57)
