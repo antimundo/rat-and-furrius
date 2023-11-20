@@ -115,6 +115,8 @@ position = Vector2(632, 556)
 [node name="DestroyableBox3" parent="Level" instance=ExtResource("6_m52jg")]
 position = Vector2(842, 556)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [connection signal="box_destroyed" from="Level/DestroyableBox" to="." method="count_destroyed_box"]
 [connection signal="box_destroyed" from="Level/DestroyableBox2" to="." method="count_destroyed_box"]
 [connection signal="box_destroyed" from="Level/DestroyableBox3" to="." method="count_destroyed_box"]
