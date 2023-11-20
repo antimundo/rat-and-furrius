@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="5_2eoy1"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="6_rty11"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="7_l6135"]
-[ext_resource type="PackedScene" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_fxd1v"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_fxd1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)

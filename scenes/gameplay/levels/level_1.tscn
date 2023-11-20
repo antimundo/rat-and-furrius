@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1rlaax0lm88e"]
+[gd_scene load_steps=11 format=3 uid="uid://d1rlaax0lm88e"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/level_manager.gd" id="1_wct6m"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="2_6pa5f"]
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="3_jty12"]
-[ext_resource type="PackedScene" uid="uid://xebbo3bo5tth" path="res://scenes/gameplay/props/goal.tscn" id="4_ev476"]
 [ext_resource type="PackedScene" uid="uid://ccn4q36ow8uji" path="res://scenes/gameplay/weapons/weapon_pick.tscn" id="5_iun8a"]
 [ext_resource type="PackedScene" uid="uid://b80k0bgl3c61d" path="res://scenes/gameplay/enemies/patrol_cat.tscn" id="6_afa0i"]
 [ext_resource type="PackedScene" uid="uid://bxanlhtgoexvp" path="res://scenes/gameplay/props/time_cheese.tscn" id="7_wb8dv"]
+[ext_resource type="PackedScene" path="res://scenes/gameplay/props/spike.tscn" id="8_5m1ex"]
+[ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="8_v74s4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -111,157 +112,6 @@ metadata/_edit_lock_ = true
 shape = SubResource("RectangleShape2D_asw6l")
 metadata/_edit_lock_ = true
 
-[node name="Wall8" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1082.32, 172)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall8"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall8/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall9" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1082, 215)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall9"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall9/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall10" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(1082, 256)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall10"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall10/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall14" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(197, 528)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall14"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall14/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall15" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(196, 497)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall15"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall15/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall16" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(196, 497)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall16"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall16/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall11" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(968, 334)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall11"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall11/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall12" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(967, 369)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall12"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall12/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall13" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(968, 405)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall13"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall13/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Wall17" type="Sprite2D" parent="Level"]
-modulate = Color(0.647059, 0.156863, 0.207843, 1)
-position = Vector2(197, 463)
-rotation = -1.57079
-scale = Vector2(0.35691, 1.05011)
-texture = ExtResource("3_jty12")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Level/Wall17"]
-metadata/_edit_lock_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Wall17/StaticBody2D"]
-shape = SubResource("RectangleShape2D_asw6l")
-metadata/_edit_lock_ = true
-
-[node name="Goal" parent="Level" instance=ExtResource("4_ev476")]
-position = Vector2(1608, 645)
-
-[node name="WeaponPick" parent="Level" instance=ExtResource("5_iun8a")]
-position = Vector2(1453, 927)
-current_weapon = 1
-
-[node name="WeaponPick2" parent="Level" instance=ExtResource("5_iun8a")]
-position = Vector2(1059, 854)
-current_weapon = 1
-
 [node name="WeaponPick3" parent="Level" instance=ExtResource("5_iun8a")]
 position = Vector2(1020, 600)
 current_weapon = 2
@@ -271,11 +121,9 @@ position = Vector2(459, 482)
 scale = Vector2(1.55, 1.55)
 curve = SubResource("Curve2D_u5eg2")
 speed = 80.0
+weakness = 3
 
 [node name="Cheese" type="Node2D" parent="."]
-
-[node name="TimeCheese" parent="Cheese" instance=ExtResource("7_wb8dv")]
-position = Vector2(1222, 853)
 
 [node name="TimeCheese2" parent="Cheese" instance=ExtResource("7_wb8dv")]
 position = Vector2(675, 193)
@@ -286,4 +134,30 @@ position = Vector2(875, 195)
 [node name="TimeCheese4" parent="Cheese" instance=ExtResource("7_wb8dv")]
 position = Vector2(465, 197)
 
-[connection signal="player_entered_goal" from="Level/Goal" to="." method="_on_player_entered_goal"]
+[node name="Spike" parent="." instance=ExtResource("8_5m1ex")]
+position = Vector2(974.665, 388)
+rotation = 1.5708
+scale = Vector2(0.730008, 0.540152)
+
+[node name="Spike2" parent="." instance=ExtResource("8_5m1ex")]
+position = Vector2(975.343, 316)
+rotation = 1.5708
+scale = Vector2(0.730008, 0.534234)
+
+[node name="Spike5" parent="." instance=ExtResource("8_5m1ex")]
+position = Vector2(219, 507)
+rotation = 1.5708
+scale = Vector2(0.730008, 0.623852)
+
+[node name="Spike3" parent="." instance=ExtResource("8_5m1ex")]
+position = Vector2(1070.64, 245.061)
+rotation = -1.5708
+scale = Vector2(0.730008, 0.463228)
+
+[node name="Spike4" parent="." instance=ExtResource("8_5m1ex")]
+position = Vector2(1069.9, 173.061)
+rotation = -1.5708
+scale = Vector2(0.730008, 0.48098)
+
+[node name="DestroyableBox" parent="." instance=ExtResource("8_v74s4")]
+position = Vector2(886, 488)
