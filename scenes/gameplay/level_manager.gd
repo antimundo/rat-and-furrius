@@ -17,9 +17,14 @@ func _ready() -> void:
 	propagate_call("connect_player_caught", [self])
 	propagate_call("connect_cat_counter", [self])
 
-func _on_player_caught() -> void:
-	if OS.is_debug_build():
+## "Hack" to allow resetting levels without a game manager, for when running
+## levels on their own via the "Run current scene" button in the editor
+func reload_if_running_from_current_scene():
+	if OS.is_debug_build() and not "game_manager" in get_path().get_concatenated_names():
 		get_tree().reload_current_scene()
+
+func _on_player_caught() -> void:
+	reload_if_running_from_current_scene()
 	restart_level.emit(cheese_container)
 
 func _on_cat_died() -> void:
