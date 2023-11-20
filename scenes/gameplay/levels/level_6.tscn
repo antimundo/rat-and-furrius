@@ -261,32 +261,32 @@ rotation = -4.71239
 scale = Vector2(0.521434, 0.476938)
 
 [node name="Spike14" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(448, 395)
+position = Vector2(451, 395)
 rotation = -7.85398
 scale = Vector2(0.521434, 0.513294)
 
 [node name="Spike15" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(447, 531)
+position = Vector2(450, 531)
 rotation = -7.85398
 scale = Vector2(0.521434, 0.522602)
 
 [node name="Spike16" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(384, 461)
+position = Vector2(381, 461)
 rotation = -10.9956
 scale = Vector2(0.521434, 0.501681)
 
 [node name="Spike17" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(498, 641)
+position = Vector2(498, 646)
 rotation = -6.28319
 scale = Vector2(0.521434, 0.48435)
 
 [node name="Spike18" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(587, 602)
+position = Vector2(587, 600)
 rotation = -15.708
 scale = Vector2(0.521434, 0.48435)
 
 [node name="Spike19" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(676, 640)
+position = Vector2(676, 642)
 rotation = -12.5664
 scale = Vector2(0.521434, 0.48435)
 
@@ -326,7 +326,7 @@ rotation = -14.1372
 scale = Vector2(0.521434, 0.48435)
 
 [node name="Spike20" parent="." instance=ExtResource("10_tgaog")]
-position = Vector2(760, 602)
+position = Vector2(760, 597)
 rotation = -15.708
 scale = Vector2(0.521434, 0.48435)
 
@@ -350,7 +350,7 @@ position = Vector2(1145, 623)
 scale = Vector2(0.4, 0.4)
 
 [node name="PatrolCat" parent="." instance=ExtResource("6_sxwlb")]
-position = Vector2(163, 316)
+position = Vector2(132.885, 316)
 scale = Vector2(1.2, 1.2)
 curve = SubResource("Curve2D_v8vdd")
 speed = 150.0
