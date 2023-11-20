@@ -2,9 +2,36 @@
 
 [ext_resource type="Script" path="res://scenes/game_manager/game_manager.gd" id="1_woiw8"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="2_43sdy"]
-[ext_resource type="Texture2D" uid="uid://qq1oxy06fspm" path="res://assets/sprites/Clock.png" id="2_eqlv3"]
+[ext_resource type="Texture2D" uid="uid://cp5ff11ecnu4r" path="res://assets/sprites/Clock.png" id="2_eqlv3"]
 [ext_resource type="Script" path="res://scenes/game_manager/end_game_timer.gd" id="2_ln6gs"]
 [ext_resource type="AudioStream" uid="uid://dtky6y0mv0gyv" path="res://assets/music/music_gameplay.ogg" id="3_7bieq"]
+
+[sub_resource type="Animation" id="Animation_iesm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_2qfl1"]
 resource_name = "time_low"
@@ -34,33 +61,6 @@ tracks/1/keys = {
 "values": [-0.0872665, 0.0872665]
 }
 
-[sub_resource type="Animation" id="Animation_iesm3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m37j1"]
 _data = {
 "RESET": SubResource("Animation_iesm3"),
@@ -79,6 +79,7 @@ offset_bottom = 40.0
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
 self_modulate = Color(0.623529, 0.643137, 1, 1)
+layout_mode = 0
 offset_left = 15.0
 offset_top = 8.0
 offset_right = 165.0
@@ -135,7 +136,7 @@ libraries = {
 }
 
 [node name="EndGameTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 20.0
 one_shot = true
 autostart = true
 script = ExtResource("2_ln6gs")
