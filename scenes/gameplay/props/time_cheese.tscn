@@ -136,7 +136,7 @@ _data = {
 [node name="TimeCheese" type="Sprite2D"]
 texture = ExtResource("1_70x7b")
 script = ExtResource("2_1eolw")
-pickup_color = Color(0.952941, 0.827451, 0.678431, 1)
+pickup_color = Color(0.772549, 0.615686, 0.647059, 1)
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_kr71m")

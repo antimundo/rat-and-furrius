@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="5_m4fif"]
 [ext_resource type="Texture2D" uid="uid://ceqjy7tvbysq3" path="res://assets/sprites/Cat_SleepyG.png" id="5_mobak"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="6_ettpo"]
-[ext_resource type="AudioStream" uid="uid://cvch4btmiy2h1" path="res://assets/audio/sword_slash_squash.mp3" id="6_pnchk"]
-[ext_resource type="Texture2D" uid="uid://cf7pw8nfwjfr7" path="res://assets/sprites/circle_vision.png" id="8_trl5l"]
+[ext_resource type="AudioStream" uid="uid://dqkhj7shfw01c" path="res://assets/audio/sound_sword_slash.ogg" id="6_tej0a"]
+[ext_resource type="Texture2D" uid="uid://7jxqgi0dt4ko" path="res://assets/sprites/circle_vision.svg" id="8_g78wn"]
 [ext_resource type="PackedScene" uid="uid://coidy6fgutbu1" path="res://scenes/gameplay/enemies/destroy_effects.tscn" id="10_y0rmr"]
 
 [sub_resource type="Curve2D" id="Curve2D_030nq"]
@@ -36,7 +36,7 @@ sprite_blue = ExtResource("2_fa6an")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("6_pnchk")
+stream = ExtResource("6_tej0a")
 
 [node name="effects" parent="." instance=ExtResource("10_y0rmr")]
 
@@ -44,7 +44,7 @@ stream = ExtResource("6_pnchk")
 
 [node name="Vision" type="Sprite2D" parent="PathFollow2D"]
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("8_trl5l")
+texture = ExtResource("8_g78wn")
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D/Vision"]
 script = ExtResource("5_m4fif")

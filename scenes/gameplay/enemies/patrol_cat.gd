@@ -79,6 +79,7 @@ func animate_pulse():
 
 func TEMPORAL_play_killed_sound():
 	var audio = %AudioStreamPlayer
+	audio.pitch_scale = randf_range(.9, 1.1)
 	audio.play()
 	audio.reparent(get_tree().root)
 	audio.finished.connect(audio.queue_free)
