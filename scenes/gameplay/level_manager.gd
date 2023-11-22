@@ -32,9 +32,6 @@ func _on_cat_died() -> void:
 	if cats_on_level == 0:
 		level_finished.emit()
 
-func _on_player_entered_goal() -> void:
-	level_finished.emit()
-
 func add_cheeses(cheeses: Node2D) -> void:
 	cheese_container.queue_free()
 	cheese_container = cheeses

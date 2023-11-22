@@ -8,7 +8,7 @@ func get_input():
 	look_at(get_global_mouse_position())
 	
 	const SNAP_PADDING := 10
-	const UNSNAP_DISTANCE := 250
+	const UNSNAP_DISTANCE := 450
 	
 	var distance = position.distance_to(get_global_mouse_position())
 	
