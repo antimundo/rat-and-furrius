@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wfkhsf2olb1h"]
+[gd_scene load_steps=3 format=3 uid="uid://wfkhsf2olb1h"]
 
-[ext_resource type="Texture2D" uid="uid://ccow7ru30eflo" path="res://assets/sprites/Spikes.png" id="1_g6lyt"]
+[ext_resource type="Texture2D" uid="uid://cwii6qut11khp" path="res://assets/sprites/Spikes.png" id="1_g6lyt"]
 [ext_resource type="Script" path="res://scenes/gameplay/props/spike.gd" id="2_b8n07"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qusf3"]
-radius = 22.0
-height = 82.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_al7cx"]
 
 [node name="Spike" type="Sprite2D"]
 texture = ExtResource("1_g6lyt")
@@ -15,12 +9,7 @@ texture = ExtResource("1_g6lyt")
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource("2_b8n07")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, 39)
-shape = SubResource("CapsuleShape2D_qusf3")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_al7cx")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, -22, -35, 80, 35, 80)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
