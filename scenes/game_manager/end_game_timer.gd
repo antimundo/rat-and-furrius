@@ -19,7 +19,6 @@ func _process(_delta: float) -> void:
 
 func add_time(time_to_add: float) -> void:
 	var texture_rect = $"../Control/TextureRect"
-	Tween.TWEEN_PAUSE_STOP
 	texture_rect.scale = Vector2(1.3, 1.3)
 	if tween == null:
 		tween = create_tween()

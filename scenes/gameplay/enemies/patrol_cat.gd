@@ -53,7 +53,7 @@ func _physics_process(delta: float) -> void:
 func _on_player_entered_enemy_vision() -> void:
 	player_caught.emit()
 
-func _on_player_entered_enemy_weak_spot(player) -> void:
+func _on_player_entered_enemy_weak_spot(_player) -> void:
 	enabled = false
 	$PathFollow2D/Vision/Area2D.monitoring = false
 	%WeakSpot.set_deferred("monitoring", false)

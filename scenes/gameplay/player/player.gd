@@ -26,7 +26,7 @@ func get_input():
 		$Sprite2D.scale.x = 0.5
 		$Weapon/Sprite.scale.x = 1
 		velocity = transform.x * 0
-		if distance < UNSNAP_DISTANCE / 4:
+		if distance < UNSNAP_DISTANCE / 4.0:
 			if not is_snapped:
 				$MouseSnapSound.play()
 			is_snapped = true

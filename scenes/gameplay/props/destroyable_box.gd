@@ -6,7 +6,7 @@ signal box_destroyed
 var pick_particles = preload("res://scenes/gameplay/props/cheese_pick_particle.tscn")
 var particle_texture = preload("res://assets/sprites/square.svg")
 
-func _on_player_entered_enemy_weak_spot(player) -> void:
+func _on_player_entered_enemy_weak_spot(_player) -> void:
 	box_destroyed.emit()
 	$Area2D.set_deferred("monitoring", false)
 	$AnimationPlayer.play("pickup")
