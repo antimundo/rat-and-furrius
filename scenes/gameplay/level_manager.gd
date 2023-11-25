@@ -7,9 +7,9 @@ extends Node2D
 ## These signals are consumed by the game manager in ./scenes/game_manager/GameManager.gd
 
 signal level_finished
-signal restart_level(cheeses: Node2D)
+signal restart_level(cheeses: Node)
 
-@onready var cheese_container: Node2D = $Cheese
+@onready var dont_destroy_on_death: Node = $DontDestroyOnDeath
 
 var cats_on_level: int = 0
 
@@ -25,14 +25,14 @@ func reload_if_running_from_current_scene():
 
 func _on_player_caught() -> void:
 	reload_if_running_from_current_scene()
-	restart_level.emit(cheese_container)
+	restart_level.emit(dont_destroy_on_death)
 
 func _on_cat_died() -> void:
 	cats_on_level -= 1
 	if cats_on_level == 0:
 		level_finished.emit()
 
-func add_cheeses(cheeses: Node2D) -> void:
-	cheese_container.queue_free()
-	cheese_container = cheeses
+func add_cheeses(cheeses: Node) -> void:
+	dont_destroy_on_death.queue_free()
+	dont_destroy_on_death = cheeses
 	cheeses.reparent(self)

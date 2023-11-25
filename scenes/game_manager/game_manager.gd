@@ -33,7 +33,7 @@ func load_end_scene(scene: PackedScene) -> void:
 func unload_current_level() -> void:
 	current_level.queue_free()
 
-func reload_current_level(cheeses: Node2D) -> void:
+func reload_current_level(cheeses: Node) -> void:
 	$SFXNextLevel.play()
 	var last_level = current_level
 	cheeses.call_deferred("reparent", self)
