@@ -30,7 +30,9 @@ func get_input():
 			if not is_snapped:
 				$MouseSnapSound.play()
 			is_snapped = true
-			
+			if get_node_or_null("Area2") != null:
+				$Area2.queue_free()
+	
 	last_position = position
 
 func _physics_process(_delta):
@@ -46,3 +48,6 @@ func change_weapon(new_weapon):
 	$Tail/Line2D.change_gradient(new_weapon)
 	$Weapon/AnimationPlayer.play("pickup")
 	return old_weapon
+
+func _on_too_long_unsnapped_timeout():
+	$Area2.visible = true
