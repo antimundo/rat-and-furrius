@@ -38,12 +38,13 @@ stream = ExtResource("6_u8v1c")
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 
 [node name="Vision" type="Sprite2D" parent="PathFollow2D"]
-position = Vector2(120, -7.62939e-06)
+position = Vector2(20, 0)
 scale = Vector2(0.12, 0.12)
 texture = ExtResource("4_wa5gq")
+offset = Vector2(800, 0)
 
 [node name="Area2D" type="Area2D" parent="PathFollow2D/Vision"]
-position = Vector2(-42.905, 8.73178e-06)
+position = Vector2(750, 0)
 script = ExtResource("4_ajana")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PathFollow2D/Vision/Area2D"]

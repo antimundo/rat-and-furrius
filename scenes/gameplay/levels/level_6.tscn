@@ -14,7 +14,7 @@
 
 [sub_resource type="Curve2D" id="Curve2D_v8vdd"]
 _data = {
-"points": PackedVector2Array(31.5908, 5.55584, -31.5908, -5.55584, 0, 0, -11.5568, -2.2713, 11.5568, 2.2713, 357.5, 1.66669, 167.348, 12.9265, -167.348, -12.9265, 0, 0)
+"points": PackedVector2Array(31.5908, 5.55584, 0, -15, 0, 0, 0, -15, 0, 15, 357.5, 0, 0, 15, 0, -15, 0, 0)
 }
 point_count = 3
 
@@ -42,17 +42,19 @@ time_animation = 0.8
 time_on = 0.5
 
 [node name="PatrolCat" parent="." instance=ExtResource("6_sxwlb")]
-position = Vector2(132.885, 316)
+position = Vector2(132.885, 310)
 scale = Vector2(1.2, 1.2)
 curve = SubResource("Curve2D_v8vdd")
 speed = 150.0
 weakness = 3
+reduce_vertical_vision = true
 
 [node name="PatrolCat3" parent="." instance=ExtResource("6_sxwlb")]
 position = Vector2(170, 614)
 scale = Vector2(1.2, 1.2)
 curve = SubResource("Curve2D_v8vdd")
 speed = 90.0
+reduce_vertical_vision = true
 
 [node name="DestroyableBox5" parent="." instance=ExtResource("7_6b0qu")]
 position = Vector2(870, 317)

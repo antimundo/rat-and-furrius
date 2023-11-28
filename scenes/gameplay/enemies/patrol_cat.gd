@@ -14,6 +14,8 @@ enum CatType { sleepy, patrol }
 @export var speed := 100.0
 ## Color that this cat is weak to
 @export var weakness: Weakness = Weakness.red
+## If true, vision cone will be reduced on vertical positions
+@export var reduce_vertical_vision: bool = false
 
 @export_group("Pulse")
 ## Time that the pulse stays off
@@ -28,6 +30,7 @@ enum CatType { sleepy, patrol }
 @export var time_on := 1.0
 
 var enabled: bool = true
+var last_position
 
 func _ready() -> void:
 	%Sprite2D.set_sprite(weakness)
@@ -36,6 +39,15 @@ func _ready() -> void:
 		$PathFollow2D/Vision.scale = Vector2(0, 0)
 		await get_tree().create_timer(delay_first_pulse).timeout
 		animate_pulse()
+
+func _process(delta):
+	if !reduce_vertical_vision or last_position == null or type != CatType.patrol:
+		last_position = %Sprite2D.position
+		return
+	var velocity = %Sprite2D.position - last_position
+	var direction = velocity.normalized()
+	$PathFollow2D/Vision.scale.x = 0.12 * (1 - abs(direction.y))
+	last_position = %Sprite2D.position
 
 func connect_player_caught(level_manager) -> void:
 	if level_manager.has_method("_on_player_caught"):
