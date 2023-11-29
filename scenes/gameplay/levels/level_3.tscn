@@ -14,6 +14,31 @@
 [node name="level_0" type="Node2D"]
 script = ExtResource("1_thrut")
 
+[node name="Spike" type="Node2D" parent="."]
+
+[node name="Spike" parent="Spike" instance=ExtResource("10_3vtlj")]
+position = Vector2(688, 585)
+rotation = 1.5708
+scale = Vector2(0.730008, 0.73542)
+
+[node name="Spike2" parent="Spike" instance=ExtResource("10_3vtlj")]
+position = Vector2(690, 377)
+rotation = 1.5708
+scale = Vector2(0.730008, 0.747958)
+
+[node name="Spike3" parent="Spike" instance=ExtResource("10_3vtlj")]
+position = Vector2(751, 477)
+rotation = -1.5708
+scale = Vector2(0.730008, 0.685267)
+
+[node name="DontDestroyOnDeath" type="Node2D" parent="."]
+
+[node name="TimeCheese5" parent="DontDestroyOnDeath" instance=ExtResource("8_dwguy")]
+position = Vector2(150, 280)
+
+[node name="TimeCheese6" parent="DontDestroyOnDeath" instance=ExtResource("8_dwguy")]
+position = Vector2(690, 430)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("11_xumfv")
 format = 2
@@ -25,6 +50,25 @@ position = Vector2(531, 130)
 [node name="WeaponPick2" parent="." instance=ExtResource("4_h63r5")]
 position = Vector2(527, 269)
 current_weapon = 1
+
+[node name="Button" parent="." instance=ExtResource("6_l7o4i")]
+position = Vector2(1089, 587)
+scale = Vector2(0.4, 0.4)
+
+[node name="Door" parent="." instance=ExtResource("9_36tvw")]
+position = Vector2(443, 278)
+rotation = 1.5708
+scale = Vector2(0.35, 0.35)
+open_for_seconds = 0.8
+
+[node name="DestroyableBox4" parent="." instance=ExtResource("7_lajj3")]
+position = Vector2(627, 277)
+
+[node name="DestroyableBox2" parent="." instance=ExtResource("7_lajj3")]
+position = Vector2(921, 277)
+
+[node name="DestroyableBox3" parent="." instance=ExtResource("7_lajj3")]
+position = Vector2(1100, 461)
 
 [node name="SleepyCat" parent="." instance=ExtResource("5_06p2h")]
 position = Vector2(763.74, 278.24)
@@ -59,50 +103,6 @@ delay_first_pulse = 0.2
 time_off = 0.5
 time_animation = 0.8
 time_on = 0.3
-
-[node name="Button" parent="." instance=ExtResource("6_l7o4i")]
-position = Vector2(1089, 587)
-scale = Vector2(0.4, 0.4)
-
-[node name="Door" parent="." instance=ExtResource("9_36tvw")]
-position = Vector2(443, 278)
-rotation = 1.5708
-scale = Vector2(0.35, 0.35)
-open_for_seconds = 0.8
-
-[node name="DestroyableBox4" parent="." instance=ExtResource("7_lajj3")]
-position = Vector2(627, 277)
-
-[node name="DestroyableBox2" parent="." instance=ExtResource("7_lajj3")]
-position = Vector2(921, 277)
-
-[node name="DestroyableBox3" parent="." instance=ExtResource("7_lajj3")]
-position = Vector2(1100, 461)
-
-[node name="DontDestroyOnDeath" type="Node" parent="."]
-
-[node name="TimeCheese5" parent="DontDestroyOnDeath" instance=ExtResource("8_dwguy")]
-position = Vector2(150, 280)
-
-[node name="TimeCheese6" parent="DontDestroyOnDeath" instance=ExtResource("8_dwguy")]
-position = Vector2(690, 430)
-
-[node name="Spike" type="Node" parent="."]
-
-[node name="Spike" parent="Spike" instance=ExtResource("10_3vtlj")]
-position = Vector2(688, 585)
-rotation = 1.5708
-scale = Vector2(0.730008, 0.73542)
-
-[node name="Spike2" parent="Spike" instance=ExtResource("10_3vtlj")]
-position = Vector2(690, 377)
-rotation = 1.5708
-scale = Vector2(0.730008, 0.747958)
-
-[node name="Spike3" parent="Spike" instance=ExtResource("10_3vtlj")]
-position = Vector2(751, 477)
-rotation = -1.5708
-scale = Vector2(0.730008, 0.685267)
 
 [connection signal="button_pressed" from="Button" to="Door" method="open_door"]
 [connection signal="door_closed" from="Door" to="Button" method="reset_button"]
