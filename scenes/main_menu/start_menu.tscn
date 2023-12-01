@@ -87,10 +87,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Level/Label"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_4evw7")
 }
+autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="Level"]
 visible = false

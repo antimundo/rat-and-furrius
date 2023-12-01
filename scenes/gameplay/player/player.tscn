@@ -203,10 +203,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_nw4bl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area2"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_w7ynk")
 }
+autoplay = "idle"
 
 [node name="TooLongUnsnapped" type="Timer" parent="Area2"]
 wait_time = 9.0
@@ -219,10 +219,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("6_r2rqk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Area"]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_w43h6")
 }
+autoplay = "idle"
 
 [node name="MouseSnapSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_lsi4b")
