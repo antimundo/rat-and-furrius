@@ -84,6 +84,8 @@ anchors_preset = 0
 script = ExtResource("1_ff3co")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+z_index = 4096
+z_as_relative = false
 layout_mode = 0
 offset_left = 2017.0
 offset_right = 2737.0
@@ -103,9 +105,9 @@ texture = ExtResource("2_ulcys")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "next_level"
 libraries = {
 "": SubResource("AnimationLibrary_x7p3u")
 }
+autoplay = "next_level"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
