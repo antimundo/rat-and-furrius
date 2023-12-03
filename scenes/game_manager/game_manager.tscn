@@ -1,10 +1,75 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsuf565vxlltg"]
+[gd_scene load_steps=14 format=3 uid="uid://dsuf565vxlltg"]
 
 [ext_resource type="Script" path="res://scenes/game_manager/game_manager.gd" id="1_woiw8"]
 [ext_resource type="Texture2D" uid="uid://r28s42mguoxy" path="res://assets/sprites/circle.svg" id="2_43sdy"]
-[ext_resource type="Texture2D" uid="uid://qq1oxy06fspm" path="res://assets/sprites/Clock.png" id="2_eqlv3"]
+[ext_resource type="Texture2D" uid="uid://cp5ff11ecnu4r" path="res://assets/sprites/Clock.png" id="2_eqlv3"]
 [ext_resource type="Script" path="res://scenes/game_manager/end_game_timer.gd" id="2_ln6gs"]
+[ext_resource type="PackedScene" uid="uid://dv3kfiw88cwed" path="res://scenes/game_manager/curtain.tscn" id="2_wg7jd"]
 [ext_resource type="AudioStream" uid="uid://dtky6y0mv0gyv" path="res://assets/music/music_gameplay.ogg" id="3_7bieq"]
+[ext_resource type="AudioStream" uid="uid://cqqri2g8q31q8" path="res://assets/audio/timer.ogg" id="5_fs0g5"]
+[ext_resource type="AudioStream" uid="uid://dtjcqgqdthfl6" path="res://assets/audio/whistle.ogg" id="6_q8e05"]
+[ext_resource type="AudioStream" uid="uid://cctuobp8o40aa" path="res://assets/audio/defeat_contact.ogg" id="7_nbisg"]
+
+[sub_resource type="Animation" id="Animation_iesm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 8)]
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:scale:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_2qfl1"]
 resource_name = "time_low"
@@ -34,37 +99,76 @@ tracks/1/keys = {
 "values": [-0.0872665, 0.0872665]
 }
 
-[sub_resource type="Animation" id="Animation_iesm3"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_jvp2h"]
+resource_name = "time_up"
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.5, 0.5),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(15, 8), Vector2(144, 163)]
 }
-tracks/1/type = "value"
+tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath(".:scale:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 3, -0.104832, 2.28185, 0.0489294, -0.902017, 2.85142, -0.0405659, 0.704827, 0.0459747, -0.486087, 2.82711, -0.11088, -0.0486088, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.576577, 0.752362)
 }
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 3, -0.10022, 2.28185, 0.0581243, -0.999234, 2.80281, -0.0459747, 0.923566, 0.0421885, -0.437478, 2.77851, -0.111421, 0.0729132, 0.25, 0),
+"times": PackedFloat32Array(0, 0.4, 0.576577, 0.752362)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4, 0.6, 1, 1.4, 1.8, 2.2, 2.4),
+"transitions": PackedFloat32Array(-2, -2, -2, -2, -2, -2, 1),
+"update": 0,
+"values": [0.0, 0.174533, -0.174533, 0.174533, -0.174533, 0.174533, 0.0]
+}
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../SFXTimeUp")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_q8e05")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m37j1"]
 _data = {
 "RESET": SubResource("Animation_iesm3"),
-"time_low": SubResource("Animation_2qfl1")
+"time_low": SubResource("Animation_2qfl1"),
+"time_up": SubResource("Animation_jvp2h")
 }
 
 [node name="game_manager" type="Node"]
@@ -77,12 +181,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Curtain" parent="Control" instance=ExtResource("2_wg7jd")]
+
 [node name="TextureRect" type="TextureRect" parent="Control"]
 self_modulate = Color(0.623529, 0.643137, 1, 1)
+layout_mode = 0
 offset_left = 15.0
 offset_top = 8.0
-offset_right = 165.0
-offset_bottom = 158.0
+offset_right = 164.996
+offset_bottom = 157.997
 pivot_offset = Vector2(71, 80)
 texture = ExtResource("2_eqlv3")
 expand_mode = 1
@@ -135,7 +242,7 @@ libraries = {
 }
 
 [node name="EndGameTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 autostart = true
 script = ExtResource("2_ln6gs")
@@ -145,4 +252,15 @@ stream = ExtResource("3_7bieq")
 volume_db = -4.0
 autoplay = true
 
+[node name="SFXNextLevel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_nbisg")
+
+[node name="SFXTimeUp" type="AudioStreamPlayer" parent="."]
+
+[node name="SFXTimeLow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fs0g5")
+volume_db = 2.0
+
+[connection signal="game_over" from="EndGameTimer" to="." method="_on_game_over"]
 [connection signal="timeout" from="EndGameTimer" to="." method="_on_end_game_timer_timeout"]
+[connection signal="timeout" from="EndGameTimer" to="EndGameTimer" method="_on_timeout"]

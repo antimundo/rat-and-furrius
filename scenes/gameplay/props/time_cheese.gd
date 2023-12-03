@@ -5,7 +5,7 @@ extends Sprite2D
 @export var pickup_color := Color.WHITE
 var pick_particles = preload("res://scenes/gameplay/props/cheese_pick_particle.tscn")
 
-func _on_player_entered_enemy_weak_spot() -> void:
+func _on_player_entered_enemy_weak_spot(_body) -> void:
 	$Area2D.set_deferred("monitoring", false)
 	EventBus.got_cheese.emit(time_to_add)
 	$AudioStreamPlayer.pitch_scale = randf_range(.8, 1.2)

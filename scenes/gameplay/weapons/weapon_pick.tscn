@@ -110,6 +110,7 @@ _data = {
 
 [node name="WeaponPick" type="Node2D"]
 script = ExtResource("1_2vjsw")
+pickup_cooldown_time = 0.75
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 3.66519

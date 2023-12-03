@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfi3nsvqsr1p4"]
+
+[ext_resource type="PackedScene" uid="uid://bjipjl8dxe7mo" path="res://scenes/main_menu/start_menu.tscn" id="1_mwy2k"]
+
+[node name="end_menu" type="Node2D"]
+
+[node name="start_menu" parent="." instance=ExtResource("1_mwy2k")]
+game_finished = true
+text = "¡Gracias por jugar! ♥
+Destruye las cajas para volver a empezar"

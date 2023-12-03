@@ -10,9 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Mermelada Jam 2023"
-run/main_scene="res://scenes/main_menu/main_menu.tscn"
-config/features=PackedStringArray("4.1", "GL Compatibility")
+config/name="Rat And Furrius"
+run/main_scene="res://scenes/main_menu/start_menu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,3 +29,4 @@ window/stretch/mode="viewport"
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.952941, 0.827451, 0.678431, 1)

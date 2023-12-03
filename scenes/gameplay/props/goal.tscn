@@ -1,7 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://xebbo3bo5tth"]
+[gd_scene load_steps=7 format=3 uid="uid://dsr1ss8fc3mjc"]
 
 [ext_resource type="Texture2D" uid="uid://dkcvyxgemb5eo" path="res://assets/sprites/square.svg" id="1_yseug"]
-[ext_resource type="Script" path="res://scenes/gameplay/props/goal.gd" id="2_p3vv7"]
+
+[sub_resource type="GDScript" id="GDScript_wfamh"]
+script/source = "extends Sprite2D
+## Used in levels to signal a player reached the end
+
+signal player_entered_goal
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group(\"player\"):
+		player_entered_goal.emit()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_asw6l"]
 size = Vector2(64, 64)
@@ -47,7 +57,7 @@ _data = {
 modulate = Color(0.101961, 1, 0.113725, 0.32549)
 scale = Vector2(4, 4)
 texture = ExtResource("1_yseug")
-script = ExtResource("2_p3vv7")
+script = SubResource("GDScript_wfamh")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-30.3803, -274.908)

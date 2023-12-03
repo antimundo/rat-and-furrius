@@ -1,6 +1,7 @@
 extends Node
 ## Used in main menu/game to manage loading/freeing levels in order
 
+@onready var curtain = $Control/Curtain
 var levels: Array[PackedScene]
 var current_level_index: int = 0
 var current_level: Node
@@ -15,17 +16,34 @@ func load_next_level() -> void:
 		load_level(levels[current_level_index])
 	else:
 		unload_current_level()
-		load_menu()
+		load_game_finished()
 
+#TODO: rename to game over
 func load_menu():
-	var menu = load("res://scenes/main_menu/main_menu.tscn").instantiate()
-	get_tree().root.add_child(menu)
+	curtain.reparent(get_tree().get_root())
+	curtain.play_animation()
+	curtain.finished.connect(curtain.queue_free)
+	await curtain.change_scene_now
+	load_end_scene(load("res://scenes/main_menu/start_menu.tscn"))
 	queue_free()
 
+#TODO: rename to victory
+func load_game_finished():
+	curtain.reparent(get_tree().get_root())
+	curtain.play_animation()
+	curtain.finished.connect(curtain.queue_free)
+	await curtain.change_scene_now
+	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
+	queue_free()
+
+func load_end_scene(scene: PackedScene) -> void:
+	get_tree().root.call_deferred("add_child", scene.instantiate())
+	
 func unload_current_level() -> void:
 	current_level.queue_free()
 
-func reload_current_level(cheeses: Node2D) -> void:
+func reload_current_level(cheeses: Node) -> void:
+	$SFXNextLevel.play()
 	var last_level = current_level
 	cheeses.call_deferred("reparent", self)
 	load_level(levels[current_level_index])
@@ -33,6 +51,7 @@ func reload_current_level(cheeses: Node2D) -> void:
 	last_level.queue_free()
 
 func load_level(scene: PackedScene) -> void:
+	curtain.play_animation()
 	current_level = scene.instantiate()
 	if current_level.has_signal("level_finished"):
 		current_level.level_finished.connect(load_next_level)
@@ -40,7 +59,8 @@ func load_level(scene: PackedScene) -> void:
 		current_level.restart_level.connect(reload_current_level)
 	call_deferred("add_child", current_level)
 
-
+func _on_game_over() -> void:
+	load_menu()
 
 func _on_end_game_timer_timeout() -> void:
-	load_menu()
+	current_level.process_mode = Node.PROCESS_MODE_DISABLED

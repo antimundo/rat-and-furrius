@@ -8,7 +8,7 @@ func get_input():
 	look_at(get_global_mouse_position())
 	
 	const SNAP_PADDING := 10
-	const UNSNAP_DISTANCE := 250
+	const UNSNAP_DISTANCE := 450
 	
 	var distance = position.distance_to(get_global_mouse_position())
 	
@@ -26,16 +26,21 @@ func get_input():
 		$Sprite2D.scale.x = 0.5
 		$Weapon/Sprite.scale.x = 1
 		velocity = transform.x * 0
-		if distance < UNSNAP_DISTANCE / 4:
+		if distance < UNSNAP_DISTANCE / 4.0:
 			if not is_snapped:
 				$MouseSnapSound.play()
 			is_snapped = true
-			
+			if get_node_or_null("Area2") != null:
+				$Area2.queue_free()
+	
 	last_position = position
 
 func _physics_process(_delta):
 	get_input()
 	move_and_slide()
+
+func get_current_weapon() -> WeaponPick.weapon_types:
+	return $Weapon.current_weapon
 
 func change_weapon(new_weapon):
 	var old_weapon = $Weapon.current_weapon
@@ -43,3 +48,6 @@ func change_weapon(new_weapon):
 	$Tail/Line2D.change_gradient(new_weapon)
 	$Weapon/AnimationPlayer.play("pickup")
 	return old_weapon
+
+func _on_too_long_unsnapped_timeout():
+	$Area2.visible = true

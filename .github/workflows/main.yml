@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 env:
   ITCHIO_USERNAME: antimundo
-  ITCHIO_GAME: metal-gato-solid
+  ITCHIO_GAME: rat-and-furrius
   BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
   GODOT_VERSION: 4.1.3
 
