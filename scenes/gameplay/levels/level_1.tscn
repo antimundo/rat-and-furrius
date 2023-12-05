@@ -53,13 +53,13 @@ scale = Vector2(0.730008, 0.446715)
 [node name="DontDestroyOnDeath" type="Node2D" parent="."]
 
 [node name="TimeCheese2" parent="DontDestroyOnDeath" instance=ExtResource("7_wb8dv")]
-position = Vector2(675, 193)
+position = Vector2(675, 206)
 
 [node name="TimeCheese3" parent="DontDestroyOnDeath" instance=ExtResource("7_wb8dv")]
-position = Vector2(875, 195)
+position = Vector2(875, 208)
 
 [node name="TimeCheese4" parent="DontDestroyOnDeath" instance=ExtResource("7_wb8dv")]
-position = Vector2(465, 197)
+position = Vector2(465, 210)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_l2isg")
@@ -70,7 +70,7 @@ layer_0/tile_data = PackedInt32Array(65543, 65536, 0, 65544, 65536, 0, 65545, 65
 position = Vector2(259, 107)
 
 [node name="WeaponPick3" parent="." instance=ExtResource("5_iun8a")]
-position = Vector2(1020, 600)
+position = Vector2(1020, 592)
 current_weapon = 2
 
 [node name="PatrolCat" parent="." instance=ExtResource("6_afa0i")]

@@ -52,7 +52,7 @@ position = Vector2(527, 269)
 current_weapon = 1
 
 [node name="Button" parent="." instance=ExtResource("6_l7o4i")]
-position = Vector2(1089, 587)
+position = Vector2(1090, 586)
 scale = Vector2(0.4, 0.4)
 
 [node name="Door" parent="." instance=ExtResource("9_36tvw")]
@@ -68,7 +68,7 @@ position = Vector2(627, 277)
 position = Vector2(921, 277)
 
 [node name="DestroyableBox3" parent="." instance=ExtResource("7_lajj3")]
-position = Vector2(1100, 461)
+position = Vector2(1090, 461)
 
 [node name="SleepyCat" parent="." instance=ExtResource("5_06p2h")]
 position = Vector2(763.74, 278.24)

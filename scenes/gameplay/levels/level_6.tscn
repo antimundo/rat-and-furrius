@@ -120,11 +120,11 @@ scale = Vector2(0.521434, 0.434198)
 [node name="DontDestroyOnDeath" type="Node2D" parent="."]
 
 [node name="TimeCheese5" parent="DontDestroyOnDeath" instance=ExtResource("5_bvhok")]
-position = Vector2(849.437, 230.5)
+position = Vector2(864, 214)
 time_to_add = 3.0
 
 [node name="TimeCheese6" parent="DontDestroyOnDeath" instance=ExtResource("5_bvhok")]
-position = Vector2(96.4371, 637.5)
+position = Vector2(142, 618)
 time_to_add = 3.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -165,23 +165,24 @@ open_for_seconds = 3.0
 position = Vector2(926.415, 620.6)
 scale = Vector2(1.4, 1.4)
 size_max = 2.3
+delay_first_pulse = 0.2
 time_off = 0.5
-time_animation = 0.8
+time_animation = 0.6
 time_on = 0.5
 
 [node name="PatrolCat" parent="." instance=ExtResource("6_sxwlb")]
 position = Vector2(132.885, 310)
 scale = Vector2(1.2, 1.2)
 curve = SubResource("Curve2D_v8vdd")
-speed = 150.0
+speed = 155.0
 weakness = 3
 reduce_vertical_vision = true
 
 [node name="PatrolCat3" parent="." instance=ExtResource("6_sxwlb")]
-position = Vector2(170, 614)
+position = Vector2(228.845, 614)
 scale = Vector2(1.2, 1.2)
 curve = SubResource("Curve2D_v8vdd")
-speed = 90.0
+speed = 80.0
 reduce_vertical_vision = true
 
 [connection signal="button_pressed" from="Button" to="Door" method="open_door"]

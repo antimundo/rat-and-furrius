@@ -92,14 +92,14 @@ layer_0/tile_data = PackedInt32Array(1, 0, 0, 65537, 0, 1, 131073, 0, 1, 196609,
 position = Vector2(170, 100)
 
 [node name="WeaponPick" parent="." instance=ExtResource("5_024qe")]
-position = Vector2(1194, 88)
+position = Vector2(1194, 81)
 current_weapon = 1
 
 [node name="WeaponPick2" parent="." instance=ExtResource("5_024qe")]
 position = Vector2(918, 311)
 
 [node name="WeaponPick3" parent="." instance=ExtResource("5_024qe")]
-position = Vector2(1188, 457)
+position = Vector2(1188, 462)
 current_weapon = 2
 
 [node name="Button" parent="." instance=ExtResource("8_1wi8e")]

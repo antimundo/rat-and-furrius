@@ -26,15 +26,15 @@ script = ExtResource("1_p3jms")
 [node name="DontDestroyOnDeath" type="Node2D" parent="."]
 
 [node name="TimeCheese5" parent="DontDestroyOnDeath" instance=ExtResource("7_yn1nc")]
-position = Vector2(680.437, 524.5)
+position = Vector2(710, 547)
 time_to_add = 2.0
 
 [node name="TimeCheese7" parent="DontDestroyOnDeath" instance=ExtResource("7_yn1nc")]
-position = Vector2(271.437, 327.5)
+position = Vector2(295.437, 314.5)
 time_to_add = 2.0
 
 [node name="TimeCheese6" parent="DontDestroyOnDeath" instance=ExtResource("7_yn1nc")]
-position = Vector2(1065.44, 339.5)
+position = Vector2(1100, 324)
 time_to_add = 2.0
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -53,22 +53,22 @@ current_weapon = 2
 position = Vector2(290, 168)
 
 [node name="DestroyableBox2" parent="." instance=ExtResource("10_pyajp")]
-position = Vector2(432, 168)
+position = Vector2(439, 168)
 
 [node name="DestroyableBox3" parent="." instance=ExtResource("10_pyajp")]
-position = Vector2(439, 308)
+position = Vector2(439, 314)
 
 [node name="DestroyableBox5" parent="." instance=ExtResource("10_pyajp")]
 position = Vector2(298, 448)
 
 [node name="DestroyableBox6" parent="." instance=ExtResource("10_pyajp")]
-position = Vector2(444, 446)
+position = Vector2(441, 449)
 
 [node name="DestroyableBox10" parent="." instance=ExtResource("10_pyajp")]
 position = Vector2(1102, 168)
 
 [node name="DestroyableBox11" parent="." instance=ExtResource("10_pyajp")]
-position = Vector2(1103, 449)
+position = Vector2(1103, 450)
 
 [node name="DestroyableBox12" parent="." instance=ExtResource("10_pyajp")]
 position = Vector2(966, 329)
@@ -77,7 +77,7 @@ position = Vector2(966, 329)
 position = Vector2(967, 450)
 
 [node name="DestroyableBox7" parent="." instance=ExtResource("10_pyajp")]
-position = Vector2(307, 582)
+position = Vector2(297, 582)
 
 [node name="DestroyableBox8" parent="." instance=ExtResource("10_pyajp")]
 position = Vector2(1104, 566)
@@ -94,6 +94,7 @@ position = Vector2(974, 167)
 [node name="PatrolCat" parent="." instance=ExtResource("9_208kq")]
 position = Vector2(375, 569)
 curve = SubResource("Curve2D_w37oo")
+speed = 110.0
 weakness = 3
 
 [node name="PatrolCat2" parent="." instance=ExtResource("9_208kq")]
