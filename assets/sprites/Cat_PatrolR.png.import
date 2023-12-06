@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chr1i2reijjlx"
-path="res://.godot/imported/Cat_patrol.png-31cc04c4fe3c5fb4c250ec0b07747c03.ctex"
+uid="uid://h46qtjdwywi"
+path="res://.godot/imported/Cat_PatrolR.png-55a69f3b144e4ca660f9a345d9774772.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cat_patrol.png"
-dest_files=["res://.godot/imported/Cat_patrol.png-31cc04c4fe3c5fb4c250ec0b07747c03.ctex"]
+source_file="res://assets/sprites/Cat_PatrolR.png"
+dest_files=["res://.godot/imported/Cat_PatrolR.png-55a69f3b144e4ca660f9a345d9774772.ctex"]
 
 [params]
 

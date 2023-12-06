@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b80k0bgl3c61d"]
 
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/patrol_cat.gd" id="1_3cni5"]
-[ext_resource type="Texture2D" uid="uid://chr1i2reijjlx" path="res://assets/sprites/Cat_patrol.png" id="2_2fkh4"]
+[ext_resource type="Texture2D" uid="uid://h46qtjdwywi" path="res://assets/sprites/Cat_PatrolR.png" id="2_n1d5s"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_weak_spot.gd" id="4_3rp4t"]
 [ext_resource type="Script" path="res://scenes/gameplay/enemies/enemy_vision.gd" id="4_ajana"]
 [ext_resource type="Texture2D" uid="uid://cuh6mt1bdnkhw" path="res://assets/sprites/cone_vision.svg" id="4_wa5gq"]
@@ -22,10 +22,10 @@ type = 1
 [node name="Sprite2D" type="Sprite2D" parent="." node_paths=PackedStringArray("node_to_follow")]
 unique_name_in_owner = true
 scale = Vector2(0.185, 0.185)
-texture = ExtResource("2_2fkh4")
+texture = ExtResource("2_n1d5s")
 script = ExtResource("6_jj2yl")
 node_to_follow = NodePath("../PathFollow2D")
-sprite_red = ExtResource("2_2fkh4")
+sprite_red = ExtResource("2_n1d5s")
 sprite_green = ExtResource("8_fbhgn")
 sprite_blue = ExtResource("9_6nxu5")
 
