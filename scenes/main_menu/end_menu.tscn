@@ -1,7 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfi3nsvqsr1p4"]
+[gd_scene load_steps=9 format=3 uid="uid://bfi3nsvqsr1p4"]
 
 [ext_resource type="Texture2D" uid="uid://1rkh0k12n2ls" path="res://assets/sprites/heart-icon.svg" id="1_84ixt"]
 [ext_resource type="PackedScene" uid="uid://bjipjl8dxe7mo" path="res://scenes/main_menu/start_menu.tscn" id="1_mwy2k"]
+[ext_resource type="Texture2D" uid="uid://cpptko27tg06s" path="res://assets/sprites/mouse-head.svg" id="3_uaijc"]
+[ext_resource type="Texture2D" uid="uid://dy1ppjt2u3kfd" path="res://assets/sprites/slider-tick.svg" id="4_gyrfe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jquu"]
+bg_color = Color(0.968627, 0.878431, 0.776471, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cy3ye"]
+bg_color = Color(0.717647, 0.607843, 0.686275, 1)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+expand_margin_bottom = 25.0
 
 [sub_resource type="Curve" id="Curve_3fegh"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.351695, 0.835165), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -12,6 +28,30 @@ offsets = PackedFloat32Array(0, 0.490385, 1)
 colors = PackedColorArray(0.952941, 0.827451, 0.678431, 1, 0.975531, 0.90486, 0.825362, 1, 0.952941, 0.827451, 0.678431, 1)
 
 [node name="end_menu" type="Node2D"]
+
+[node name="HSlider" type="HSlider" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 486.0
+offset_top = 257.0
+offset_right = 744.0
+offset_bottom = 305.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_filter = 2
+theme_override_constants/grabber_offset = 11
+theme_override_icons/grabber = ExtResource("3_uaijc")
+theme_override_icons/tick = ExtResource("4_gyrfe")
+theme_override_styles/slider = SubResource("StyleBoxFlat_7jquu")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_cy3ye")
+max_value = 5.0
+value = 4.0
+tick_count = 6
+ticks_on_borders = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(640, 360)

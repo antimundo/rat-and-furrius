@@ -10,6 +10,8 @@ func _ready() -> void:
 	$Level/Label.text = text
 	if game_finished:
 		$AudioStreamPlayer.stream = load("res://assets/music/victory.ogg")
+		$Level/Logo.scale = Vector2(0.7, 0.7)
+		$Level/Logo.position.y -= 40
 	else:
 		$AudioStreamPlayer.stream = load("res://assets/music/music_menu.ogg")
 	$AudioStreamPlayer.play()
