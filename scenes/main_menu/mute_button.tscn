@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgxeglm2v7pad"]
+
+[ext_resource type="Texture2D" uid="uid://cyso1lfxpn0k" path="res://assets/sprites/MuteButton1.png" id="1_urxlu"]
+[ext_resource type="Script" path="res://scenes/main_menu/mute_button.gd" id="2_sedkj"]
+[ext_resource type="AudioStream" uid="uid://byqryh54qat26" path="res://assets/audio/mouse_snap.ogg" id="3_tiapp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rbov"]
+size = Vector2(150, 150)
+
+[node name="MuteButton" type="Sprite2D"]
+position = Vector2(1050, 165)
+scale = Vector2(0.62, 0.62)
+texture = ExtResource("1_urxlu")
+script = ExtResource("2_sedkj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_6rbov")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tiapp")
+
+[node name="ButtonCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="button_pressed" from="." to="ButtonCooldown" method="start"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ButtonCooldown" to="." method="reset_button"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfi3nsvqsr1p4"]
+[gd_scene load_steps=21 format=3 uid="uid://bfi3nsvqsr1p4"]
 
 [ext_resource type="Texture2D" uid="uid://1rkh0k12n2ls" path="res://assets/sprites/heart-icon.svg" id="1_84ixt"]
 [ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_wyadd"]
 [ext_resource type="Resource" uid="uid://cw2b5wscfcxs7" path="res://scenes/main_menu/level_list.tres" id="2_i8i84"]
 [ext_resource type="Texture2D" uid="uid://cpptko27tg06s" path="res://assets/sprites/mouse-head.svg" id="3_uaijc"]
 [ext_resource type="Texture2D" uid="uid://dy1ppjt2u3kfd" path="res://assets/sprites/slider-tick.svg" id="4_gyrfe"]
+[ext_resource type="PackedScene" uid="uid://cgxeglm2v7pad" path="res://scenes/main_menu/mute_button.tscn" id="10_ccn5x"]
 [ext_resource type="TileSet" uid="uid://dqh1gof6cuk5l" path="res://assets/tilemap.tres" id="10_d3cgq"]
 [ext_resource type="FontFile" uid="uid://xgehwx784gtw" path="res://assets/permanent-marker-regular.ttf" id="11_3jq6u"]
 [ext_resource type="Texture2D" uid="uid://c73opf6qhieh3" path="res://assets/sprites/Portada.png" id="12_e8omb"]
@@ -162,6 +163,8 @@ max_value = 5.0
 value = 4.0
 tick_count = 6
 ticks_on_borders = true
+
+[node name="MuteButton" parent="Level" instance=ExtResource("10_ccn5x")]
 
 [node name="Player" parent="Level" instance=ExtResource("14_iiaa6")]
 position = Vector2(209, 546)
