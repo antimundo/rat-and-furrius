@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjipjl8dxe7mo"]
+[gd_scene load_steps=13 format=3 uid="uid://bjipjl8dxe7mo"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_cqxbd"]
-[ext_resource type="Texture2D" uid="uid://c73opf6qhieh3" path="res://assets/sprites/Portada.png" id="2_h4cya"]
 [ext_resource type="Resource" uid="uid://cw2b5wscfcxs7" path="res://scenes/main_menu/level_list.tres" id="2_srgjd"]
 [ext_resource type="Texture2D" uid="uid://bal8b8120hp3c" path="res://assets/sprites/rat-and-furious-logo.svg" id="3_pvrrl"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_m52jg"]
@@ -91,7 +90,7 @@ autoplay = "idle"
 [node name="Sprite2D" type="Sprite2D" parent="Level"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("2_h4cya")
+texture = ExtResource("3_pvrrl")
 metadata/_edit_lock_ = true
 
 [node name="Logo" type="Sprite2D" parent="Level"]

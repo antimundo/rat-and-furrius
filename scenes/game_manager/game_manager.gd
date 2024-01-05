@@ -36,8 +36,10 @@ func load_game_finished():
 	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
 	queue_free()
 
-func load_end_scene(scene: PackedScene) -> void:
-	get_tree().root.call_deferred("add_child", scene.instantiate())
+func load_end_scene(packed_scene: PackedScene) -> void:
+	var scene = packed_scene.instantiate()
+	scene.last_time = $EndGameTimer.time_left
+	get_tree().root.call_deferred("add_child", scene)
 	
 func unload_current_level() -> void:
 	current_level.queue_free()
