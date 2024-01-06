@@ -7,6 +7,9 @@ signal finished
 func play_animation() -> void:
 	$AnimationPlayer.play("next_level")
 
+func is_playing() -> bool:
+	return $AnimationPlayer.is_playing()
+
 func emit_change_scene_signal() -> void:
 	change_scene_now.emit()
 
