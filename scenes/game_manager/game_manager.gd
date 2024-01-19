@@ -5,8 +5,10 @@ extends Node
 var levels: Array[PackedScene]
 var current_level_index: int = 0
 var current_level: Node
+var run_start: float
 
 func _ready() -> void:
+	run_start = Time.get_unix_time_from_system()
 	load_level(levels[0])
 
 func load_next_level() -> void:
@@ -38,7 +40,7 @@ func load_game_finished():
 
 func load_end_scene(packed_scene: PackedScene) -> void:
 	var scene = packed_scene.instantiate()
-	scene.last_time = $EndGameTimer.time_left
+	HighscoreHolder.current = Time.get_unix_time_from_system() - run_start
 	get_tree().root.call_deferred("add_child", scene)
 	
 func unload_current_level() -> void:

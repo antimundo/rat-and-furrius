@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfi3nsvqsr1p4"]
+[gd_scene load_steps=21 format=3 uid="uid://bfi3nsvqsr1p4"]
 
 [ext_resource type="Texture2D" uid="uid://1rkh0k12n2ls" path="res://assets/sprites/heart-icon.svg" id="1_84ixt"]
 [ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_wyadd"]
 [ext_resource type="Resource" uid="uid://cw2b5wscfcxs7" path="res://scenes/main_menu/level_list.tres" id="2_i8i84"]
 [ext_resource type="Texture2D" uid="uid://cpptko27tg06s" path="res://assets/sprites/mouse-head.svg" id="3_uaijc"]
 [ext_resource type="Texture2D" uid="uid://dy1ppjt2u3kfd" path="res://assets/sprites/slider-tick.svg" id="4_gyrfe"]
+[ext_resource type="Script" path="res://scenes/main_menu/score_view.gd" id="5_bcopx"]
 [ext_resource type="PackedScene" uid="uid://cgxeglm2v7pad" path="res://scenes/main_menu/mute_button.tscn" id="10_ccn5x"]
 [ext_resource type="TileSet" uid="uid://dqh1gof6cuk5l" path="res://assets/tilemap.tres" id="10_d3cgq"]
 [ext_resource type="FontFile" uid="uid://xgehwx784gtw" path="res://assets/permanent-marker-regular.ttf" id="11_3jq6u"]
@@ -91,27 +92,26 @@ angle_max = 15.0
 scale_amount_curve = SubResource("Curve_3fegh")
 color_ramp = SubResource("Gradient_tharl")
 
-[node name="Score" type="Label" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 112.0
-offset_top = 94.0
-offset_right = 296.0
-offset_bottom = 209.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Scores" type="RichTextLabel" parent="."]
+offset_left = 141.0
+offset_top = 98.0
+offset_right = 332.0
+offset_bottom = 325.0
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.737255, 0.560784, 0.407843, 1)
-theme_override_fonts/font = ExtResource("11_3jq6u")
-theme_override_font_sizes/font_size = 38
-text = "Time left:
-12 . 34"
-horizontal_alignment = 1
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.737255, 0.560784, 0.407843, 1)
+theme_override_fonts/normal_font = ExtResource("11_3jq6u")
+theme_override_font_sizes/normal_font_size = 26
+bbcode_enabled = true
+text = "Best times
+[wave amp=100 freq=2][color=ea7984]12 . 34 s[/color][/wave]
+12 . 34 s
+12 . 34 s
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Score"]
+Last Time
+[wave amp=50 freq=2][color=ea7984]12 . 34 s[/color][/wave]"
+fit_content = true
+script = ExtResource("5_bcopx")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

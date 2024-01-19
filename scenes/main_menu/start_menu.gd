@@ -7,8 +7,6 @@ var last_time: float
 
 func _ready() -> void:
 	$AudioStreamPlayer.play()
-	if has_node("Score"):
-		$Score.text = "Last time:\n" + ("%3.2f s" % last_time).replace(".", " . ")
 
 func start_game() -> void:
 	var game_manager = game.instantiate()
