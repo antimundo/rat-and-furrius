@@ -15,7 +15,23 @@ var current: float = 0.0:
 				current_position = i as POSITION_IN_HIGHSCORE
 				highscore_list.insert(i, value)
 				highscore_list.resize(min(highscore_list.size(), 3))
+				save_highscores()
 				return
 		if highscore_list.size() < MAX_HIGHSCORE_LIST_SIZE:
 			current_position = highscore_list.size() as POSITION_IN_HIGHSCORE
 			highscore_list.append(value)
+			save_highscores()
+
+func _ready():
+	load_highscores()
+
+func save_highscores():
+	var save_file = FileAccess.open("user://savegame.save", FileAccess.WRITE)
+	save_file.store_var(highscore_list)
+
+func load_highscores():
+	var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
+	if save_game:
+		var previous_highscore_list: Array = save_game.get_var()
+		for highscore in previous_highscore_list:
+			highscore_list.append(highscore)

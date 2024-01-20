@@ -35,12 +35,12 @@ func load_game_finished():
 	curtain.play_animation()
 	curtain.finished.connect(curtain.queue_free)
 	await curtain.change_scene_now
+	HighscoreHolder.current = Time.get_unix_time_from_system() - run_start
 	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
 	queue_free()
 
 func load_end_scene(packed_scene: PackedScene) -> void:
 	var scene = packed_scene.instantiate()
-	HighscoreHolder.current = Time.get_unix_time_from_system() - run_start
 	get_tree().root.call_deferred("add_child", scene)
 	
 func unload_current_level() -> void:
