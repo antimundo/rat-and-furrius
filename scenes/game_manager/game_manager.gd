@@ -5,9 +5,19 @@ extends Node
 var levels: Array[PackedScene]
 var current_level_index: int = 0
 var current_level: Node
+var is_restarting: bool
 
 func _ready() -> void:
 	load_level(levels[0])
+	is_restarting = false
+
+func _input(event: InputEvent) -> void:
+	if not is_restarting and event.is_action_pressed("restart_game"):
+		is_restarting = true
+		if curtain.is_playing():
+			await curtain.finished
+		call_deferred("load_menu")
+		get_viewport().set_input_as_handled()
 
 func load_next_level() -> void:
 	current_level_index += 1
