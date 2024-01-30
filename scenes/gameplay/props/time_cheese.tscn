@@ -145,10 +145,10 @@ script = ExtResource("2_kr71m")
 shape = SubResource("CircleShape2D_d6lpd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "idle"
 libraries = {
 "": SubResource("AnimationLibrary_tm7u7")
 }
+autoplay = "idle"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_gvcl6")
