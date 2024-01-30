@@ -1,18 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjipjl8dxe7mo"]
+[gd_scene load_steps=13 format=3 uid="uid://bjipjl8dxe7mo"]
 
 [ext_resource type="Script" path="res://scenes/main_menu/start_menu.gd" id="1_cqxbd"]
-[ext_resource type="PackedScene" uid="uid://bcnimij4eaggj" path="res://scenes/gameplay/levels/level_0.tscn" id="2_46ft8"]
-[ext_resource type="PackedScene" uid="uid://d1rlaax0lm88e" path="res://scenes/gameplay/levels/level_1.tscn" id="3_itduj"]
+[ext_resource type="Resource" uid="uid://cw2b5wscfcxs7" path="res://scenes/main_menu/level_list.tres" id="2_srgjd"]
 [ext_resource type="Texture2D" uid="uid://bal8b8120hp3c" path="res://assets/sprites/rat-and-furious-logo.svg" id="3_pvrrl"]
-[ext_resource type="PackedScene" uid="uid://c0yp7mrfev6rc" path="res://scenes/gameplay/levels/level_2.tscn" id="4_nixmm"]
-[ext_resource type="PackedScene" uid="uid://dcfso3c8lfrxx" path="res://scenes/gameplay/levels/level_3.tscn" id="5_sifat"]
-[ext_resource type="PackedScene" uid="uid://3reh8ude07up" path="res://scenes/gameplay/levels/level_6.tscn" id="6_0mxk8"]
-[ext_resource type="PackedScene" uid="uid://dhu7vaos6i02j" path="res://scenes/gameplay/levels/level_5.tscn" id="6_ghu1k"]
 [ext_resource type="PackedScene" uid="uid://bpdqagyo7yown" path="res://scenes/gameplay/props/destroyable_box.tscn" id="6_m52jg"]
-[ext_resource type="PackedScene" uid="uid://bgxweq7nxwk38" path="res://scenes/gameplay/levels/level_4.tscn" id="6_rs1ox"]
+[ext_resource type="PackedScene" uid="uid://cgxeglm2v7pad" path="res://scenes/main_menu/mute_button.tscn" id="7_qn3dd"]
 [ext_resource type="PackedScene" uid="uid://bijr1niobi180" path="res://scenes/gameplay/player/player.tscn" id="7_udtg0"]
 [ext_resource type="TileSet" uid="uid://dqh1gof6cuk5l" path="res://assets/tilemap.tres" id="9_s6cv2"]
 [ext_resource type="FontFile" uid="uid://xgehwx784gtw" path="res://assets/permanent-marker-regular.ttf" id="14_6vvtd"]
+[ext_resource type="AudioStream" uid="uid://dr5jw20171yod" path="res://assets/music/music_menu.ogg" id="15_7n7w3"]
 
 [sub_resource type="Animation" id="Animation_ppxtf"]
 length = 0.001
@@ -54,7 +50,7 @@ _data = {
 
 [node name="start_menu" type="Node2D"]
 script = ExtResource("1_cqxbd")
-scenes = Array[PackedScene]([ExtResource("2_46ft8"), ExtResource("3_itduj"), ExtResource("5_sifat"), ExtResource("6_rs1ox"), ExtResource("6_0mxk8"), ExtResource("4_nixmm"), ExtResource("6_ghu1k")])
+level_list = ExtResource("2_srgjd")
 
 [node name="Level" type="Node2D" parent="."]
 
@@ -102,6 +98,8 @@ modulate = Color(0.968627, 0.878431, 0.776471, 1)
 position = Vector2(627, 210)
 texture = ExtResource("3_pvrrl")
 
+[node name="MuteButton" parent="Level" instance=ExtResource("7_qn3dd")]
+
 [node name="Player" parent="Level" instance=ExtResource("7_udtg0")]
 position = Vector2(209, 546)
 
@@ -115,6 +113,7 @@ position = Vector2(632, 556)
 position = Vector2(842, 556)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_7n7w3")
 
 [connection signal="box_destroyed" from="Level/DestroyableBox" to="." method="count_destroyed_box"]
 [connection signal="box_destroyed" from="Level/DestroyableBox2" to="." method="count_destroyed_box"]

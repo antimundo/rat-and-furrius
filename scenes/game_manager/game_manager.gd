@@ -6,8 +6,10 @@ var levels: Array[PackedScene]
 var current_level_index: int = 0
 var current_level: Node
 var is_restarting: bool
+var run_start: float
 
 func _ready() -> void:
+	run_start = Time.get_unix_time_from_system()
 	load_level(levels[0])
 	is_restarting = false
 
@@ -43,11 +45,13 @@ func load_game_finished():
 	curtain.play_animation()
 	curtain.finished.connect(curtain.queue_free)
 	await curtain.change_scene_now
+	HighscoreHolder.current = Time.get_unix_time_from_system() - run_start
 	load_end_scene(load("res://scenes/main_menu/end_menu.tscn"))
 	queue_free()
 
-func load_end_scene(scene: PackedScene) -> void:
-	get_tree().root.call_deferred("add_child", scene.instantiate())
+func load_end_scene(packed_scene: PackedScene) -> void:
+	var scene = packed_scene.instantiate()
+	get_tree().root.call_deferred("add_child", scene)
 	
 func unload_current_level() -> void:
 	current_level.queue_free()

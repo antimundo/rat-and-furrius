@@ -3,7 +3,7 @@ extends Sprite2D
 
 signal button_pressed
 
-@onready var released_button = load("res://assets/sprites/Button1.png")
+@onready var released_button: Texture = load("res://assets/sprites/Button1.png")
 @onready var pressed_button: Texture = load("res://assets/sprites/Button2.png")
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var area: Area2D = $Area2D

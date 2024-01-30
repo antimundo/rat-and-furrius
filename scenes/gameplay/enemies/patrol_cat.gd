@@ -40,7 +40,7 @@ func _ready() -> void:
 		await get_tree().create_timer(delay_first_pulse).timeout
 		animate_pulse()
 
-func _process(delta):
+func _process(_delta):
 	if !reduce_vertical_vision or last_position == null or type != CatType.patrol:
 		last_position = %Sprite2D.position
 		return
