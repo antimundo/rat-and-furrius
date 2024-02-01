@@ -25,7 +25,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir build
-          godot --export-release --headless "html5" ./build/index.html
+          godot --export-release --headless "Web" ./build/index.html
       - name: Itch.io Deploy
         run: |
           ls ./build
